@@ -6,19 +6,19 @@
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+Pickstarter is a web application inspired by Kickstarter which allows musical artists to fundraise for projects. Pickstarter is built using Ruby on Rails
+and React.js. Pickstarter allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags and search notes by tag
-- [ ] Search through notes for blocks of text
-- [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Users can create and read projects
+- [ ] Users can edit and delete their projects before the project deadline
+- [ ] Project form allows picture / sound clip uploads
+- [ ] Projects searchable by genre
+- [ ] Users can back projects
+- [ ] Backers can post comments on projects
 
 ## Design Docs
 * [View Wireframes][view]
@@ -64,7 +64,7 @@ extend this to a fuzzy search through every Note's content.
 
 ### Phase 4: Allow Complex Styling in Notes (1 day)
 
-Using quill.js, allow for complex styling of notes. 
+Using quill.js, allow for complex styling of notes.
 
 [Details][phase-four]
 
@@ -86,10 +86,7 @@ the NotebookForm).
 
 ### Bonus Features (TBD)
 - [ ] Prettify transitions
-- [ ] Use javascript library for cleaner tag selection
-- [ ] Changelogs for Notes
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Multiple sessions
+- [ ] Rewards for specific pledge amounts
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
