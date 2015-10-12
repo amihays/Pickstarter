@@ -14,11 +14,10 @@ and React.js. Pickstarter allows users to:
 - [ ] Create an account
 - [ ] Log in / Log out
 - [ ] Users can create and read projects
-- [ ] Users can edit and delete their projects before the project deadline
-- [ ] Project form allows picture / sound clip uploads
 - [ ] Projects searchable by genre
 - [ ] Users can back projects
-- [ ] Backers can post comments on projects
+- [ ] Project form allows picture / sound clip uploads
+- [ ] Current user can view their profile page
 
 ## Design Docs
 * [View Wireframes][view]
@@ -29,61 +28,39 @@ and React.js. Pickstarter allows users to:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Genre Model, Project Model, and JSON API (1.5 days)
+### Phase 1: User Authentication, Genre Model, Project Model, and JSON API (2 days)
 
 During Phase 1, I will first implement user signup and authentication. After logging in, users will be redirected to the home page, which will later hold the genres index. I will also add the genre and project models, and I will set up the JSON API for projects and genres.
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and Note CRUD (2.5 days)
+### Phase 2: Flux Architecture and Project CRUD (2.5 days)
 
-Phase 2 is focused on setting up Flux, the React Router, and the React view
-structure for the main application. After the basic Flux architecture has been
-set up, a Note store will be implemented and a set of actions corresponding to
-the needed CRUD functionality created. Once this is done, I will create React
-views for the Notes `Index`, `IndexItem` and `Form`. At the end of Phase 2,
-Notes can be created, read, edited and destroyed in the browser. Notes should
-save to the database when the form loses focus or is left idle after editing.
-Lastly, while constructing the views I will start using basic bootstrap for
-styling.
+In phase 2, I will first set up the Flux architecture and React Router. I will add the necessary actions and ApiUtil methods for the Genres and Projects. Then I will add the Stores for Genres and Projects, and finally the views for the genres index, genre show page (which holds the index for the projects under that genre), and the project form to post new projects. I will style these with Bootstrap.
 
 [Details][phase-two]
 
-### Phase 3: Notebooks and Tags (2 days)
+### Phase 3: Contributions and User Profile (2 days)
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook, which has
-its own `Index` view. Create JSON API for Notebooks. Notes can also now be
-tagged with multiple tags. Users can bring up notes in a separate `SearchIndex`
-view by searching for their tags. Once the tag search is implemented, I will
-extend this to a fuzzy search through every Note's content.
+In phase 3, I will add the Contribution model and the Contribution JSON API. Contributions belong to a user and a project. On each project's show page, there will be a link to a contribution form. I will also add a profile page for the current user so they can view their posted projects and the projects they have backed. Other users' profile pages will not be visible to the current user.
 
 [Details][phase-three]
 
-### Phase 4: Allow Complex Styling in Notes (1 day)
+### Phase 4: Allow Photo and Music Clip Uploads in Project Form (1.5 days)
 
-Using quill.js, allow for complex styling of notes.
+Phase 4 expands the project form to allow an optional project photo and music clip to be uploaded. These will be added to the project show page and styled.
 
 [Details][phase-four]
 
-### Phase 5: Reminders and Garbage Collection (1 day)
+### Phase 5: Styling Cleanup and Seeding (1 day)
 
-Phase 5 introduces two new features. First, users can set reminders on notes
-which will at the time they are set for prompt the user to review and edit the
-given note. In addition, I will implement a feature that asks users to review
-notes once they reach a certain age and ask whether they should be kept,
-archived, or deleted.
-
-[Details][phase-five]
-
-### Phase 6: Styling Cleanup and Seeding (1 day)
-
-Bootstrap will have been used to keep things organized up until now, but in
-Phase 6 I will add styling flourishes and make modals out of some elements (like
-the NotebookForm).
+In phase 6, I will clean up the style of my page and add seed data.
 
 ### Bonus Features (TBD)
+- [ ] Users can edit and delete their projects before the project deadline
 - [ ] Prettify transitions
 - [ ] Rewards for specific pledge amounts
+- [ ] Allow backers to comment on projects
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

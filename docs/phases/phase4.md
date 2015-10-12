@@ -1,4 +1,4 @@
-# Phase 4: Allow Complex Styling in Notes (1 day)
+# Phase 4: Allow Photo and Music Clip Uploads in Project Form (2 days)
 
 ## Rails
 ### Models
@@ -15,4 +15,4 @@
 ### Actions
 
 ## Gems/Libraries
-* Quill.js
+* CarrierWave

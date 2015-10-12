@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Project CRUD (2 days)
+# Phase 2: Flux Architecture Genre and Project CRUD (2 days)
 
 ## Rails
 ### Models
@@ -34,4 +34,3 @@
 ## Gems/Libraries
 * Flux Dispatcher
 * Twitter Bootstrap
-* react-rails

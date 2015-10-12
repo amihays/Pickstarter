@@ -12,8 +12,17 @@
 ## ProjectsIndex / ProjectIndexItem
 ![projects]
 
+## Project
+![project]
+
+## User Profile
+![user-profile]
+
 ## ProjectForm
 ![project-form]
+
+## Contribution form
+![contribution-form]
 
 ## Component Hierarchy
 ![component-hierarchy]
@@ -23,4 +32,7 @@
 [genres]: ./wireframes/genres_index.png
 [projects]: ./wireframes/projects_index.png
 [project-form]: ./wireframes/project_form.png
+[project]: ./wireframes/project_page.png
+[user-profile]: ./wireframes/user_profile.png
+[contribution-form]: ./wireframes/contribution_form.png
 [component-hierarchy]: ./wireframes/component_hierarchy.png

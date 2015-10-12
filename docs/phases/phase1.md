@@ -1,4 +1,4 @@
-# Phase 1: User Authentication, Genre Model, Project Model, and JSON API
+# Phase 1: User Authentication, Genre Model, Project Model, and JSON API (2.5 days)
 
 ## Rails
 ### Models

@@ -10,7 +10,7 @@ user_id         | integer   | not null, foreign key (references users), indexed
 genre_id        | integer   | not null, foreign key (references genres), indexed
 deadline        | datetime  | not null
 artist_name     | string    | not null
-image_path      | string    | not null
+image           | attachment| not null
 music_clip_path | string    | not null
 funding_goal    | float     | not null
 

@@ -1,39 +1,28 @@
-# Phase 3: Notebooks and Tags (2 days)
+# Phase 3: Contributions and User Profile (2 days)
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
+* Contribution
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::ContributionsController (create)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+users/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* ContributionForm
+* UserProfile
 
 ### Stores
-* Notebook
+* User
 
 ### Actions
-* ApiActions.receiveAllNotebooks
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
+* ApiActions.receiveCurrentUser
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.createContribution
+* ApiUtil.fetchCurrentUser
 
 ## Gems/Libraries
