@@ -1,8 +1,8 @@
-# FresherNote
+# Pickstarter
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
-[heroku]: http://www.herokuapp.com
+[heroku]:
 
 ## Minimum Viable Product
 
@@ -29,12 +29,9 @@ and React.js. Pickstarter allows users to:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Note Model and JSON API (1.5 days)
+### Phase 1: User Authentication, Genre Model, Project Model, and JSON API (1.5 days)
 
-In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). There will be a basic landing page after signup that will contain the
-container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Notes.
+During Phase 1, I will first implement user signup and authentication. After logging in, users will be redirected to the home page, which will later hold the genres index. I will also add the genre and project models, and I will set up the JSON API for projects and genres.
 
 [Details][phase-one]
 
