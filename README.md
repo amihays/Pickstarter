@@ -1,8 +1,8 @@
 # Pickstarter
 
-<!-- [Heroku link][heroku] **NB:** This should be a link to your production site -->
-
-[heroku]:
+[Heroku link][heroku] **NB:** This should be a link to your production site
+<!-- 
+[heroku]: -->
 
 ## Minimum Viable Product
 
@@ -30,7 +30,7 @@ and React.js. Pickstarter allows users to:
 
 ### Phase 1: User Authentication, Genre Model, Project Model, and JSON API (2 days)
 
-During Phase 1, I will first implement user signup and authentication. After logging in, users will be redirected to the home page, which will later hold the genres index. I will also add the genre and project models, and I will set up the JSON API for projects and genres.
+During phase 1, I will first implement user signup and authentication. After logging in, users will be redirected to the home page, which will later hold the genres index. I will also add the genre and project models, and I will set up the JSON API for projects and genres.
 
 [Details][phase-one]
 
@@ -54,7 +54,7 @@ Phase 4 expands the project form to allow an optional project photo and music cl
 
 ### Phase 5: Styling Cleanup and Seeding (1 day)
 
-In phase 6, I will clean up the style of my page and add seed data.
+In phase 5, I will clean up the styling of my site and add seed data.
 
 ### Bonus Features (TBD)
 - [ ] Users can edit and delete their projects before the project deadline

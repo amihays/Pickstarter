@@ -7,7 +7,7 @@
 * Project
 
 ### Controllers
-* UsersController (create, new)
+* UsersController (create, new, show)
 * SessionsController (create, new, destroy)
 * Api::GenresController (index, show)
 * Api::ProjectsController (create, new, edit, update, show, index, destroy)
