@@ -1,8 +1,8 @@
 # Pickstarter
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
-<!-- 
-[heroku]: -->
+
+[heroku]:
 
 ## Minimum Viable Product
 
