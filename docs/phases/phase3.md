@@ -14,6 +14,8 @@ users/show.json.jbuilder
 ### Views (React Components)
 * ContributionForm
 * UserProfile
+  - ProjectsIndex
+    - ProjectIndexItem
 
 ### Stores
 * User

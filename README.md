@@ -1,23 +1,23 @@
 # Pickstarter
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+<!-- [Heroku link][heroku] **NB:** This should be a link to your production site
 
-[heroku]:
+[heroku]: -->
 
 ## Minimum Viable Product
 
-Pickstarter is a web application inspired by Kickstarter which allows musical artists to fundraise for projects. Pickstarter is built using Ruby on Rails
+Pickstarter is a web application inspired by Kickstarter which allows musical artists to fundraise for tours, albums, or other musical endeavors. Pickstarter is built using Ruby on Rails
 and React.js. Pickstarter allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Users can create and read projects
-- [ ] Projects searchable by genre
-- [ ] Users can back projects
-- [ ] Project form allows picture / sound clip uploads
-- [ ] Current user can view their profile page
+- [ ] Create and read projects
+- [ ] Search projects by genre
+- [ ] Back projects
+- [ ] Upload pictures and sound clips for their projects
+- [ ] View their own profile page
 
 ## Design Docs
 * [View Wireframes][view]
@@ -34,9 +34,9 @@ During Phase 1, I will first implement user signup and authentication. After log
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and Project CRUD (2.5 days)
+### Phase 2: Flux Architecture and Project Create/Read (2.5 days)
 
-In phase 2, I will first set up the Flux architecture and React Router. I will add the necessary actions and ApiUtil methods for the Genres and Projects. Then I will add the Stores for Genres and Projects, and finally the views for the genres index, genre show page (which holds the index for the projects under that genre), and the project form to post new projects. I will style these with Bootstrap.
+In phase 2, I will first set up the Flux architecture and React Router. I will add the necessary actions and ApiUtil methods for the Genres and Projects. Then I will add the Stores for Genres and Projects, and finally the views for the genres index, genre show page (which holds the index for the projects under that genre), project show page, and the project form to post new projects. I will style these with Bootstrap.
 
 [Details][phase-two]
 

@@ -13,23 +13,22 @@
   - GenreIndexItem
 * ProjectsIndex
   - ProjectIndexItem
+* ProjectShow
 
 ### Stores
 * Project
 * Genre
 
 ### Actions
-* ApiActions.receiveGenres
-* ApiActions.receiveGenre
-* ApiActions.receiveProject
+* ApiActions.receiveAllGenres
+* ApiActions.receiveSingleGenre
+* ApiActions.receiveSingleProject
 
 ### ApiUtil
 * ApiUtil.fetchGenres
 * ApiUtil.fetchGenre
 * ApiUtil.fetchProject
 * ApiUtil.createProject
-* ApiUtil.editProject
-* ApiUtil.destroyProject
 
 ## Gems/Libraries
 * Flux Dispatcher
