@@ -10,7 +10,7 @@
 * UsersController (create, new, show)
 * SessionsController (create, new, destroy)
 * Api::GenresController (index, show)
-* Api::ProjectsController (create, new, edit, update, show, index, destroy)
+* Api::ProjectsController (create, update, show, destroy)
 
 ### Views
 * users/new.html.erb

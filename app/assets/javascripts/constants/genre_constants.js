@@ -1,3 +1,3 @@
-// window.GenreConstants = {
-//   GENRES_RECEIVED = "genres_received"
-// }
+window.GenreConstants = {
+  GENRES_RECEIVED: "genres_received"
+}

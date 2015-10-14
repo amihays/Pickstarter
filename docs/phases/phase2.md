@@ -11,7 +11,7 @@
 ### Views (React Components)
 * GenresIndex
   - GenreIndexItem
-* ProjectsIndex
+* GenreShow
   - ProjectIndexItem
 * ProjectShow
 

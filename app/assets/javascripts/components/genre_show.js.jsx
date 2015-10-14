@@ -1,4 +1,4 @@
-// window.ProjectsIndex = React.createClass({
+// window.GenreShow = React.createClass({
 //   render: function () {
 //     return(
 //
