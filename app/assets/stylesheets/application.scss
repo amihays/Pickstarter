@@ -16,3 +16,13 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+a.navbar-brand {
+  padding: 2px;
+}
+
+button.logo {
+  border-width: 0px;
+  background-color: inherit;
+}

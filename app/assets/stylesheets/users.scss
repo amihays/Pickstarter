@@ -2,22 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.input_text {
-  box-sizing: border-box;
-  border-radius: 5px;
-  font-size: 14pt;
-  background-color: white;
-}
-
-label {
-  font-family: sans-serif;
-}
-
-.form {
-  margin: auto;
+.container.sign-up {
+  width: 400px;
+  border-width: 1px;
 }
 
 img.brand {
   height: 40px;
-  margin: 0px;
 }
