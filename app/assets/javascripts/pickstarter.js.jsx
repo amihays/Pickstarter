@@ -8,6 +8,8 @@ window.Routes = function () {
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={GenresIndex}/>
+        <Route path="genres" component={GenresIndex}/>
+        <Route path="genres/:id" component={GenreShow}/>
       </Route>
     </Router>
   ), root)

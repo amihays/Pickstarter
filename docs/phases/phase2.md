@@ -14,6 +14,7 @@
 * GenreShow
   - ProjectIndexItem
 * ProjectShow
+* ProjectForm
 
 ### Stores
 * Project

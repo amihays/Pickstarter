@@ -8,8 +8,12 @@ window.GenresIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    GenreStore.addChangeListener(this._onChange)
+    GenreStore.addChangeListener(this._onChange);
     ApiUtil.fetchGenres();
+  },
+
+  componentWillUnmount: function () {
+    GenreStore.removeChangeListener(this._onChange);
   },
 
   render: function () {

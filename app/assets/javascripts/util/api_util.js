@@ -9,6 +9,19 @@ window.ApiUtil = {
     })
   },
 
+  fetchGenre: function (id) {
+    $.ajax({
+      url: "api/genres/" + id,
+      type: "get",
+      success: function (genre) {
+        ApiActions.receiveSingleGenre(genre);
+      },
+      error: function () {
+        console.log("Failed fetchGenre request");
+      }
+    })
+  },
+
   fetchGenres: function () {
     $.ajax({
       url: "api/genres",
@@ -17,8 +30,16 @@ window.ApiUtil = {
         ApiActions.receiveAllGenres(genres);
       },
       error: function () {
-        console.log("Fails fetchGenres request");
+        console.log("Failed fetchGenres request");
       }
     })
   }
+  //
+  // createProject: function () {
+  //
+  // },
+  //
+  // fetchProject: function () {
+  //
+  // }
 }
