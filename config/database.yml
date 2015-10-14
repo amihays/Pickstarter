@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: Pickstarter_production
-  username: Pickstarter
-  password: <%= ENV['PICKSTARTER_DATABASE_PASSWORD'] %>

@@ -17,4 +17,7 @@
 class Project < ActiveRecord::Base
   validates :title, :description, :user_id, :genre_id, :deadline, :artist_name,
     :funding_goal, presence: true
+
+  belongs_to :genre
+  belongs_to :user
 end

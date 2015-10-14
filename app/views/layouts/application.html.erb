@@ -2,17 +2,41 @@
 <html>
 <head>
   <title>Pickstarter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% if current_user %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-  <%= link_to "Sign In", new_session_url, method: :get %>
-  <%= link_to "Sign Up", new_user_url, method: :get %>
+<% unless current_user %>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#collapse-menu"
+              aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collapse-menu">
+      <ul class="nav navbar-nav pull-left">
+        <a class="navbar-brand" href="#">
+          <button><img class="brand" src="<%= image_path('playful-kitten-6683.jpg') %>"></button>
+        </a>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="<%= new_session_url %>">Sign In</a></li>
+        <li><a href="<%= new_user_url %>">Sign Up</a></li>
+      </ul>
+    </div>
+
+  </div>
+  </nav>
 <% end %>
 
 <%= render "layouts/errors" %>
