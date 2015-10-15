@@ -14,11 +14,18 @@ window.GenreShow = React.createClass({
 
   componentDidMount: function () {
     GenreStore.addGenreChangeListener(this._onChange);
+    ApiUtil.fetchGenres();
     ApiUtil.fetchGenre(parseInt(this.props.params.id));
   },
 
   componentWillUnmount: function () {
     GenreStore.removeChangeListener(this._onChange);
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchGenre(parseInt(newProps.params.id));
+    var genre = GenreStore.find(parseInt(newProps.params.id)) || {};
+    this.setState({genre: genre});
   },
 
   render: function () {

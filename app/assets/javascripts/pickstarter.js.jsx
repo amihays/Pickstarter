@@ -10,6 +10,7 @@ window.Routes = function () {
         <IndexRoute component={GenresIndex}/>
         <Route path="genres" component={GenresIndex}/>
         <Route path="genres/:id" component={GenreShow}/>
+        <Route path="projects/new" component={ProjectForm}/>
       </Route>
     </Router>
   ), root)
