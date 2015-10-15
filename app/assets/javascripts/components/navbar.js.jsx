@@ -15,7 +15,7 @@ window.Navbar = React.createClass({
             <li><a onClick={this.logOutClickHandler}>Log out</a></li>
           </ul>
       </li>
-    )
+    );
 
     return (
       <nav className="navbar navbar-default">
@@ -39,12 +39,17 @@ window.Navbar = React.createClass({
             </a>
           </ul>
           <ul className="nav navbar-nav pull-right">
+            <li>
+              <a className="navbar-genres" href="#">
+                <button className="genres-index-link">Discover</button>
+              </a>
+            </li>
             <li>{button}</li>
           </ul>
         </div>
 
       </div>
       </nav>
-    )
+    );
   }
 })

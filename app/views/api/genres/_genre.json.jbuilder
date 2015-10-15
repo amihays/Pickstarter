@@ -1,1 +1,1 @@
-json.extract! genre, :id, :name
+json.extract! genre, :id, :name, :image_url

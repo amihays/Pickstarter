@@ -19,10 +19,41 @@
 
 
 a.navbar-brand {
-  padding: 2px;
+  padding-top: 7px;
+  padding-bottom: 8px;
 }
 
 button.logo {
   border-width: 0px;
   background-color: inherit;
+}
+
+button.genres-index-link {
+  border-width: 0px;
+  background-color: inherit;
+  // position: relative;
+}
+
+div.genre-index-item {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+img.genre-image {
+  width: 300px;
+  height: 300px;
+  // margin-bottom: 50px;
+}
+
+h1.genre-text {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0) // move 50% of text width to the left
+  // left: 40%;
 }
