@@ -18,10 +18,10 @@ window.GenresIndex = React.createClass({
 
   render: function () {
     return(
-      <div className="container">
+      <div className="container genres-index">
         <div className="row">
           {this.state.genres.map(function (genre) {
-            return <div key={genre.id} className="col-md-4 col-sm-6 col-xs-12"><GenreIndexItem key={genre.id} genre={genre}/></div>
+            return <div key={genre.id} className="col-md-4 col-sm-6 col-xs-8"><GenreIndexItem key={genre.id} genre={genre}/></div>
           })}
         </div>
       </div>

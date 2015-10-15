@@ -11,6 +11,6 @@ window.GenreIndexItem = React.createClass({
         <img className="genre-image" src={this.props.genre.image_url}/>
         <h1 className="genre-text">{this.props.genre.name}</h1>
       </div>
-    )
+    );
   }
 })
