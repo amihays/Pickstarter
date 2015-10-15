@@ -1,5 +1,5 @@
 window.ProjectForm = React.createClass({
-  // mixins: [React.addons.LinkedStateMixin],
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return {
@@ -13,12 +13,6 @@ window.ProjectForm = React.createClass({
     };
   },
 
-  handleInputChange: function (param, e) {
-    var newState = {};
-    newState[param] = e.target.value;
-    this.setState(newState);
-  },
-
   componentDidMount: function () {
     GenreStore.addChangeListener(this._onGenresChange);
     ApiUtil.fetchGenres();
@@ -28,20 +22,32 @@ window.ProjectForm = React.createClass({
     GenreStore.removeChangeListener(this._onGenresChange);
   },
 
-  // submitForm: function (e) {
-  //   e.preventDefault();
-  //   var params = {};
-  //   this.state.
-  // },
+  submitForm: function (e) {
+    e.preventDefault();
+    var params = {};
+
+    Object.keys(this.state).forEach(function(key) {
+      if (key !== 'genres') {
+        params[key] = this.state[key];
+      }
+    }.bind(this))
+    ApiUtil.createProject(params);
+  },
 
   _onGenresChange: function () {
     this.setState({genres: GenreStore.all()});
   },
 
+  handleInputChange: function (param, e) {
+    var newState = {};
+    newState[param] = e.target.value;
+    this.setState(newState);
+  },
+
   render: function () {
     return(
       <div className='container'>
-        <form className='create-project'>
+        <form className='create-project' onSubmit={this.submitForm}>
           <div>
             <label htmlFor='project_title'>Project Title</label>
             <input type='text'
@@ -60,11 +66,11 @@ window.ProjectForm = React.createClass({
 
           <div>
             <label htmlFor='project_genre'>Genre</label>
-            <select id='project_genre'>
+            <select id='project_genre' onChange={this.handleInputChange.bind(null, 'genre_id')}>
               <option></option>
               {
                 this.state.genres.map(function (genre) {
-                  return <option key={genre.id} value={genre.id} onChange={this.handleInputChange.bind(null, 'genre_id')}>{genre.name}</option>
+                  return <option key={genre.id} value={genre.id}>{genre.name}</option>
                 }.bind(this))
               }
             </select>
