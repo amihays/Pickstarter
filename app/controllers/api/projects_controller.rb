@@ -5,7 +5,11 @@ class Api::ProjectsController < ApplicationController
   # end
 
   def create
-    @project = Project.new(project_params)
+    project_info = project_params
+    project_info[:deadline] = Date.parse(project_info[:deadline])
+    project_info[:user_id] = current_user.id
+    @project = Project.new(project_info)
+
     if @project.save
       render :show
     else

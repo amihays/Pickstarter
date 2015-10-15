@@ -33,11 +33,22 @@ window.ApiUtil = {
         console.log("Failed fetchGenres request");
       }
     })
-  }
-  //
-  // createProject: function () {
-  //
-  // },
+  },
+
+  createProject: function (params) {
+    $.ajax({
+      url: 'api/projects',
+      type: 'post',
+      data: {project: params},
+      success: function (project) {
+        window.location = "api/projects/" + project.id;
+      },
+      error: function () {
+        console.log('Failed createProject request');
+      }
+    })
+
+  },
   //
   // fetchProject: function () {
   //

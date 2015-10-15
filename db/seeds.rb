@@ -12,4 +12,4 @@ Genre.create(name: 'rap', image_url: 'assets/rap.jpg')
 Genre.create(name: 'classical', image_url: 'assets/classical.jpg')
 Genre.create(name: 'pop', image_url: 'assets/pop.jpg')
 
-Project.create(title: 'raise funding for surprise', description: "can't say!", user_id: 1, genre_id: 1, deadline: DateTime.new(2015,4,21,4,5,6), artist_name: 'Beyonce', funding_goal: 200000.00)
+Project.create(title: 'raise funding for surprise', description: "can't say!", user_id: 1, genre_id: 1, deadline: Date.new(2015,4,21), artist_name: 'Beyonce', funding_goal: 200000.00)
