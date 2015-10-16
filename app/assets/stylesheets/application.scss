@@ -17,6 +17,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: #EAE8E8;
+}
+
+.jumbotron.genre-header-jumbotron {
+  background-color: #70a4a7;
+  color: white;
+}
+
 div.container.genres-index {
   width: 70%;
 }

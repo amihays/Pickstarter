@@ -9,7 +9,7 @@ window.ProjectForm = React.createClass({
       deadline: '',
       artist_name: '',
       funding_goal: '',
-      genres: GenreStore.all(),
+      genres: GenreStore.all()
     };
   },
 
@@ -44,6 +44,28 @@ window.ProjectForm = React.createClass({
     this.setState(newState);
   },
 
+  _uploadImage: function (e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget({
+      cloud_name: 'daqcetxc6',
+      upload_preset: 'pscd81e7',
+    }, function(error, result) {
+      if (error) {
+        console.log(error)
+      } else {
+        this.setState({image_url: result[0]['url']})
+      }
+    }.bind(this));
+  },
+
+// <script type="text/javascript">
+//   document.getElementById("upload_widget_opener").addEventListener("click", function() {
+//
+//     cloudinary.openUploadWidget({ cloud_name: 'demo', upload_preset: 'a5vxnzbp'},
+//       function(error, result) { console.log(error, result) });
+//
+//   }, false);
+// </script>
   render: function () {
     return(
       <div className='container project-form-container'>
@@ -105,6 +127,11 @@ window.ProjectForm = React.createClass({
                    className='form-control'
                    value={this.state.deadline}
                    onChange={this.handleInputChange.bind(null, 'deadline')}/>
+          </div>
+
+          <div className='form-group'>
+            <label htmlFor='project_image'>Upload Project Image</label>
+            <a href="#" id="upload_widget_opener" id='project_image' onClick={this._uploadImage}>Upload Image</a>
           </div>
 
           <button type="submit" className="btn btn-default">Create Project!</button>

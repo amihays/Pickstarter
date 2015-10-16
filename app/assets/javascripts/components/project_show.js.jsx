@@ -25,10 +25,10 @@ window.ProjectShow = React.createClass({
     return(
       <div className="container">
         <div className="jumbotron">
-          <h1 className="genre-header">{this.state.project}</h1>
+          <h1 className="genre-header">{this.state.project.title}</h1>
         </div>
         <div className="row">
-
+          <img src={this.state.project.image_url}/>
         </div>
       </div>
     )

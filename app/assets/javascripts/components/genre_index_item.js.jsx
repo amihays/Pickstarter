@@ -9,7 +9,7 @@ window.GenreIndexItem = React.createClass({
     return (
       <div className="genre-index-item" onClick={this.showGenre}>
         <img className="genre-image" src={this.props.genre.image_url}/>
-        <h4 className="genre-text">{this.props.genre.name}</h4>
+        <h1 className="genre-text">{this.props.genre.name}</h1>
       </div>
     );
   }

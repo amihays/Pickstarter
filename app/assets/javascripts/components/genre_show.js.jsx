@@ -37,7 +37,7 @@ window.GenreShow = React.createClass({
     }
     return(
       <div className="container">
-        <div className="jumbotron">
+        <div className="jumbotron genre-header-jumbotron">
           <h1 className="genre-header">{this.state.genre.name}</h1>
         </div>
         <div className="row">

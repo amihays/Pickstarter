@@ -54,7 +54,7 @@ window.ApiUtil = {
       type: 'post',
       data: {project: params},
       success: function (project) {
-        window.location = "projects/" + project.id;
+        window.location = "#/projects/" + project.id;
       },
       error: function (errors) {
         var errorMessages = errors.responseJSON;

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cloudinary'
 gem 'annotate'
 gem 'bcrypt'
 gem 'react-rails'

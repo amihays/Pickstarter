@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: daqcetxc6
+  api_key: '749832998182618'
+  api_secret: AHvA8jVukrRBgiJm-IkgTIzsqfw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: daqcetxc6
+  api_key: '749832998182618'
+  api_secret: AHvA8jVukrRBgiJm-IkgTIzsqfw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: daqcetxc6
+  api_key: '749832998182618'
+  api_secret: AHvA8jVukrRBgiJm-IkgTIzsqfw
+  enhance_image_tag: true
+  static_image_support: false
