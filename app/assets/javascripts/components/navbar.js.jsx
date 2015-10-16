@@ -12,6 +12,7 @@ window.Navbar = React.createClass({
                       aria-haspopup="true"
                       aria-expanded="false">{CURRENT_USER.username}<span className="caret"></span></a>
           <ul className="dropdown-menu">
+            <li><a>Your profile</a></li>
             <li><a onClick={this.logOutClickHandler}>Log out</a></li>
           </ul>
       </li>

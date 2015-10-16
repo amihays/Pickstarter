@@ -18,5 +18,12 @@ window.ApiActions = {
       actionType: window.ProjectConstants.PROJECT_RECEIVED,
       project: project
     })
+  },
+
+  receiveErrors: function (errors) {
+    AppDispatcher.dispatch({
+      actionType: window.ErrorConstants.ERRORS_RECEIVED,
+      errors: errors
+    })
   }
 }

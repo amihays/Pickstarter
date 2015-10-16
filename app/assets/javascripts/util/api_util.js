@@ -44,7 +44,7 @@ window.ApiUtil = {
         window.location = "api/projects/" + project.id;
       },
       error: function () {
-        console.log('Failed createProject request');
+        ApiActions.receiveErrors(errors);
       }
     })
 
