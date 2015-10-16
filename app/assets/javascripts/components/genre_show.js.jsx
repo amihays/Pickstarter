@@ -13,8 +13,8 @@ window.GenreShow = React.createClass({
   },
 
   componentDidMount: function () {
-    GenreStore.addGenreChangeListener(this._onChange);
-    ApiUtil.fetchGenres();
+    GenreStore.addChangeListener(this._onChange);
+    // ApiUtil.fetchGenres();
     ApiUtil.fetchGenre(parseInt(this.props.params.id));
   },
 
@@ -29,12 +29,20 @@ window.GenreShow = React.createClass({
   },
 
   render: function () {
+    var projects;
+    if (this.state.genre.projects){
+      projects = this.state.genre.projects.map(function(project) {
+        return <div key={project.id} className="col-md-4 col-sm-6 col-xs-8"><ProjectsIndexItem key={project.id} project={project}/></div>
+      });
+    }
     return(
       <div className="container">
         <div className="jumbotron">
           <h1 className="genre-header">{this.state.genre.name}</h1>
         </div>
-        <h2>{this.state.genre.projects}</h2>
+        <div className="row">
+          {projects}
+        </div>
       </div>
     )
   }

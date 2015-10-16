@@ -9,7 +9,7 @@ window.ProjectForm = React.createClass({
       deadline: '',
       artist_name: '',
       funding_goal: '',
-      genres: GenreStore.all()
+      genres: GenreStore.all(),
     };
   },
 
@@ -47,6 +47,9 @@ window.ProjectForm = React.createClass({
   render: function () {
     return(
       <div className='container project-form-container'>
+        <div className="row">
+          <Error/>
+        </div>
         <form className='create-project' onSubmit={this.submitForm}>
           <div className='form-group'>
             <label htmlFor='project_title'>Project Title</label>

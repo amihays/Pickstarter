@@ -35,16 +35,30 @@ window.ApiUtil = {
     })
   },
 
+  fetchProject: function (id) {
+    $.ajax({
+      url: "api/projects/" + id,
+      type: "get",
+      success: function (project) {
+        ApiActions.receiveSingleProject(project);
+      },
+      error: function () {
+        console.log("Failed fetchProject request");
+      }
+    })
+  },
+
   createProject: function (params) {
     $.ajax({
       url: 'api/projects',
       type: 'post',
       data: {project: params},
       success: function (project) {
-        window.location = "api/projects/" + project.id;
+        window.location = "projects/" + project.id;
       },
-      error: function () {
-        ApiActions.receiveErrors(errors);
+      error: function (errors) {
+        var errorMessages = errors.responseJSON;
+        ApiActions.receiveErrors(errorMessages);
       }
     })
 

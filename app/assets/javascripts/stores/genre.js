@@ -1,7 +1,7 @@
 (function(root) {
   var _genres = [];
-  var GENRES_INDEX_CHANGE_EVENT = "genresIndexChange"
-  var GENRE_CHANGE_EVENT = "genreChangeEvent"
+  var GENRES_CHANGE_EVENT = "genresIndexChange"
+  // var GENRE_CHANGE_EVENT = "genreChangeEvent"
 
   var resetGenres = function (genres) {
     _genres = genres;
@@ -36,30 +36,30 @@
     },
 
     addChangeListener: function (callback) {
-      GenreStore.on(GENRES_INDEX_CHANGE_EVENT, callback);
+      GenreStore.on(GENRES_CHANGE_EVENT, callback);
     },
 
     removeChangeListener: function (callback) {
-      GenreStore.removeListener(GENRES_INDEX_CHANGE_EVENT, callback);
+      GenreStore.removeListener(GENRES_CHANGE_EVENT, callback);
     },
-
-    addGenreChangeListener: function (callback) {
-      GenreStore.on(GENRE_CHANGE_EVENT, callback);
-    },
-
-    removeGenreChangeListener: function (callback) {
-      GenreStore.removeListener(GENRE_CHANGE_EVENT, callback);
-    },
+    //
+    // addGenreChangeListener: function (callback) {
+    //   GenreStore.on(GENRE_CHANGE_EVENT, callback);
+    // },
+    //
+    // removeGenreChangeListener: function (callback) {
+    //   GenreStore.removeListener(GENRE_CHANGE_EVENT, callback);
+    // },
 
     dispatcherId: AppDispatcher.register(function (payload) {
       switch(payload.actionType) {
         case GenreConstants.GENRES_RECEIVED:
           resetGenres(payload.genres);
-          GenreStore.emit(GENRES_INDEX_CHANGE_EVENT);
+          GenreStore.emit(GENRES_CHANGE_EVENT);
           break;
         case GenreConstants.GENRE_RECEIVED:
           swapGenre(payload.genre);
-          GenreStore.emit(GENRE_CHANGE_EVENT);
+          GenreStore.emit(GENRES_CHANGE_EVENT);
           break;
       }
     })

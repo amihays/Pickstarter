@@ -11,6 +11,7 @@ window.Routes = function () {
         <Route path="genres" component={GenresIndex}/>
         <Route path="genres/:id" component={GenreShow}/>
         <Route path="projects/new" component={ProjectForm}/>
+        <Route path="projects/:id" component={ProjectShow}/>
       </Route>
     </Router>
   ), root)

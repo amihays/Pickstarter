@@ -1,31 +1,55 @@
-// (function(root) {
-//   var _projects = [];
-//   var PROJECTS_INDEX_CHANGE_EVENT = "projectsIndexChange"
-//
-//   var resetProjects = function (projects) {
-//     _projects = projects;
-//   }
-//
-//   root.ProjectStore = $.extend({}, EventEmitter.prototype, {
-//     all: function () {
-//       return _projects.slice();
-//     },
-//
-//     addChangeListener: function (callback) {
-//       ProjectStore.on(PROJECTS_INDEX_CHANGE_EVENT, callback);
-//     },
-//
-//     removeChangeListener: function (callback) {
-//       ProjectStore.removeListener(PROJECTS_INDEX_CHANGE_EVENT, callback);
-//     },
-//
-//     dispatcherId: AppDispatcher.register(function (payload) {
-//       switch(payload.actionType) {
-//         case ProjectConstants.PROJECTS_RECEIVED:
-//           resetProjects(payload.projects);
-//           ProjectStore.emit(PROJECTS_INDEX_CHANGE_EVENT);
-//           break;
-//       }
-//     })
-//   })
-// }(this))
+(function(root) {
+  var _projects = [];
+  var PROJECTS_CHANGE_EVENT = "projectsChange"
+
+  var resetProjects = function (projects) {
+    _projects = projects;
+  }
+
+  var swapProject = function (project) {
+    var found = false;
+    _projects.forEach(function(proj, idx) {
+      if (proj.id === project.id) {
+        _projects[idx] = project;
+        found = true;
+      }
+    })
+    if (!found) {
+      _projects.push(project);
+    }
+  };
+
+  root.ProjectStore = $.extend({}, EventEmitter.prototype, {
+    all: function () {
+      return _projects.slice();
+    },
+
+    find: function (id) {
+      // debugger;
+      var project;
+      _projects.forEach(function(proj){
+        if (proj.id === id) {
+          project = proj;
+        }
+      })
+      return _projects[_projects.indexOf(project)];
+    },
+
+    addChangeListener: function (callback) {
+      ProjectStore.on(PROJECTS_CHANGE_EVENT, callback);
+    },
+
+    removeChangeListener: function (callback) {
+      ProjectStore.removeListener(PROJECTS_CHANGE_EVENT, callback);
+    },
+
+    dispatcherId: AppDispatcher.register(function (payload) {
+      switch(payload.actionType) {
+        case ProjectConstants.PROJECT_RECEIVED:
+          swapProject(payload.project);
+          ProjectStore.emit(PROJECTS_CHANGE_EVENT);
+          break;
+      }
+    })
+  })
+}(this))
