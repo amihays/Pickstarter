@@ -34,14 +34,19 @@ window.Navbar = React.createClass({
 
         <div className="collapse navbar-collapse" id="collapse-menu">
           <ul className="nav navbar-nav pull-left">
-            <a className="navbar-brand" href="#">
-              <button className="logo"><img className="brand" src="assets/PICKSTARTER-logo.png"/></button>
+            <a className="navbar-brand" href="#/">
+              <button className="logo no-border"><img className="brand" src="assets/PICKSTARTER-logo.png"/></button>
             </a>
           </ul>
           <ul className="nav navbar-nav pull-right">
             <li>
-              <a className="navbar-genres" href="#">
-                <button className="genres-index-link">Discover</button>
+              <a className="add-project-link" href="#/projects/new">
+                <button className="navbar-links no-border">Start a Project</button>
+              </a>
+            </li>
+            <li>
+              <a className="genres-link" href="#/">
+                <button className="navbar-links no-border">Discover</button>
               </a>
             </li>
             <li>{button}</li>

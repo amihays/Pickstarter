@@ -4,6 +4,7 @@
 
 .container.sign-in {
   width: 400px;
+  border-width: 1px;
 }
 
 img.brand {
@@ -12,4 +13,13 @@ img.brand {
 
 button.btn.btn-default {
   width: 100%;
+  background-color: #70a4a7;
+  font-weight: 450;
+  color: black;
+  font-size: 16px;
+}
+
+button.btn.btn-default:focus {
+  outline: none;
+  background-color: #5A8386
 }

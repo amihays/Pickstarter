@@ -46,27 +46,29 @@ window.ProjectForm = React.createClass({
 
   render: function () {
     return(
-      <div className='container'>
+      <div className='container project-form-container'>
         <form className='create-project' onSubmit={this.submitForm}>
-          <div>
+          <div className='form-group'>
             <label htmlFor='project_title'>Project Title</label>
             <input type='text'
+                   className='form-control'
                    id='project_title'
                    value={this.state.title}
                    onChange={this.handleInputChange.bind(null, 'title')}/>
           </div>
 
-          <div>
+          <div className='form-group'>
             <label htmlFor='project_artist'>Artist</label>
             <input type='text'
+                   className='form-control'
                    id='project_artist'
                    value={this.state.artist_name}
                    onChange={this.handleInputChange.bind(null, 'artist_name')}/>
           </div>
 
-          <div>
+          <div className='form-group'>
             <label htmlFor='project_genre'>Genre</label>
-            <select id='project_genre' onChange={this.handleInputChange.bind(null, 'genre_id')}>
+            <select id='project_genre' className='form-control' onChange={this.handleInputChange.bind(null, 'genre_id')}>
               <option></option>
               {
                 this.state.genres.map(function (genre) {
@@ -76,30 +78,33 @@ window.ProjectForm = React.createClass({
             </select>
           </div>
 
-          <div>
+          <div className='form-group'>
             <label htmlFor='project_description'>Description</label>
             <textarea id='project_description'
+                      className='form-control'
                       value={this.state.description}
                       onChange={this.handleInputChange.bind(null, 'description')}/>
           </div>
 
-          <div>
+          <div className='form-group'>
             <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
             <input type='text'
                    id='project_funding_goal'
+                   className='form-control'
                    value={this.state.funding_goal}
                    onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
           </div>
 
-          <div>
+          <div className='form-group'>
             <label htmlFor='project_deadline'>Fundraising Deadline</label>
             <input type='date'
                    id='project_deadline'
+                   className='form-control'
                    value={this.state.deadline}
                    onChange={this.handleInputChange.bind(null, 'deadline')}/>
           </div>
 
-          <input type='submit' value='Create Project!'/>
+          <button type="submit" className="btn btn-default">Create Project!</button>
         </form>
       </div>
     )

@@ -31,7 +31,7 @@ button.logo {
   background-color: inherit;
 }
 
-button.genres-index-link {
+button.navbar-links {
   border-width: 0px;
   background-color: inherit;
 }
@@ -76,3 +76,19 @@ h1.genre-text {
     1px 1px 0 #BBB;
   // left: 40%;
 }
+
+.container.project-form-container {
+  width: 400px;
+}
+
+button.btn.btn-default {
+  width: 100%;
+}
+
+button.no-border:focus{
+  outline: none;
+}
+
+// button.navbar-links.no-border:active{
+//   background-color: #999;
+// }
