@@ -1,13 +1,11 @@
 class Api::ProjectsController < ApplicationController
-  # def new
-  #   @project = Project.new
-  #   render :new
-  # end
 
   def create
     project_info = project_params
-    if project_info[:deadline]
-      project_info[:deadline] = Date.parse(project_info[:deadline])
+    begin
+      Date.parse(project_info[:deadline])
+    rescue
+      
     end
     project_info[:user_id] = current_user.id
     @project = Project.new(project_info)
@@ -19,9 +17,6 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
-  # def edit
-  # end
-
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
@@ -30,10 +25,6 @@ class Api::ProjectsController < ApplicationController
       render json: @project.errors.full_messages, status: 422
     end
   end
-
-  # def index
-  #   @projects = Project.all
-  # end
 
   def show
     @project = Project.find(params[:id])

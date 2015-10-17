@@ -58,14 +58,6 @@ window.ProjectForm = React.createClass({
     }.bind(this));
   },
 
-// <script type="text/javascript">
-//   document.getElementById("upload_widget_opener").addEventListener("click", function() {
-//
-//     cloudinary.openUploadWidget({ cloud_name: 'demo', upload_preset: 'a5vxnzbp'},
-//       function(error, result) { console.log(error, result) });
-//
-//   }, false);
-// </script>
   render: function () {
     return(
       <div className='container project-form-container'>

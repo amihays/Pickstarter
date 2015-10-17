@@ -22,13 +22,28 @@ window.ProjectShow = React.createClass({
   },
 
   render: function () {
+    var style = {};
+    if (this.state.project.image_url) {
+      style = {
+        backgroundImage: 'url(' + this.state.project.image_url + ')'
+      };
+    }
+
     return(
-      <div className="container">
-        <div className="jumbotron">
-          <h1 className="genre-header">{this.state.project.title}</h1>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-sm-8 col-sm-offset-2'>
+            <div className='project-header'>
+              <h1>{this.state.project.title}</h1>
+            </div>
+          </div>
         </div>
-        <div className="row">
-          <img src={this.state.project.image_url}/>
+        <div className='row'>
+          <div className='col-sm-8 col-sm-offset-2'>
+            <div className='project-show-image-container'>
+              <img src={this.state.project.image_url} />
+            </div>
+          </div>
         </div>
       </div>
     )

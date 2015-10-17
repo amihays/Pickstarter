@@ -61,8 +61,23 @@ window.ApiUtil = {
         ApiActions.receiveErrors(errorMessages);
       }
     })
-
   },
+
+  createContribution: function (params) {
+    $.ajax({
+      url: 'api/contributions',
+      type: 'post',
+      data: {contribution: params},
+      success: function (contribution) {
+        window.location = "#/projects/" + contribution.project_id;
+      },
+      error: function (errors) {
+        console.log("Failed createContribution request");
+        // var errorMessages = errors.responseJSON;
+        // ApiActions.receiveErrors(errorMessages);
+      }
+    })
+  }
   //
   // fetchProject: function () {
   //
