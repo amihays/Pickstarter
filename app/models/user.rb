@@ -20,10 +20,10 @@ class User < ActiveRecord::Base
 
   has_many :projects
   has_many :contributions
-
+  
   has_many :backed_projects,
     through: :contributions,
-    source: :projects
+    source: :project
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

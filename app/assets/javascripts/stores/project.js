@@ -4,7 +4,7 @@
 
   var resetProjects = function (projects) {
     _projects = projects;
-  }
+  };
 
   var swapProject = function (project) {
     var found = false;
@@ -25,7 +25,6 @@
     },
 
     find: function (id) {
-      // debugger;
       var project;
       _projects.forEach(function(proj){
         if (proj.id === id) {
@@ -33,6 +32,16 @@
         }
       })
       return _projects[_projects.indexOf(project)];
+    },
+
+    findByUserId: function (id) {
+      var result = [];
+      projects.forEach(function(project) {
+        if (project.user_id === id) {
+          result.push(project);
+        }
+      });
+      return result;
     },
 
     addChangeListener: function (callback) {

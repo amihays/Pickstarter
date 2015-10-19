@@ -1,6 +1,6 @@
 (function(root) {
   var _user = {};
-  var USER_CHANGE_EVENT = "USER_CHANGE_EVENT"
+  var USER_CHANGE_EVENT = "USER_CHANGE_EVENT";
 
   var resetUser = function (user) {
     _user = user;

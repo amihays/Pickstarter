@@ -9,31 +9,54 @@ window.UserProfile = React.createClass({
   },
 
   componentDidMount: function () {
-    UserStore.addChangeListener(this._onChange)
+    UserStore.addChangeListener(this._onChange);
     ApiUtil.fetchCurrentUser();
   },
 
   componentWillUnmount: function () {
-    UserStore.removeChangeListener(this._onChange)
+    UserStore.removeChangeListener(this._onChange);
   },
 
   render: function () {
     var projects;
     if (this.state.user.projects) {
-      projects = this.state.user.projects.map(function(project) {
-        return(
-          <li>
-            {project.title}
-          </li>
-        )
-      })
+      projects =
+      <ul>
+        {
+          this.state.user.projects.map(function(project) {
+            return (
+              <li>
+                { project.title }
+              </li>
+            )
+          })
+        }
+      </ul>
     }
+
+    var backedProjects;
+    if (this.state.user.backed_projects) {
+      backedProjects =
+      <ul>
+        {
+          this.state.user.backed_projects.map(function(project) {
+            return (
+              <li>
+                { project.title }
+              </li>
+            )
+          })
+        }
+      </ul>
+    }
+
     return (
       <div>
         <h2>Hi, {this.state.user.username}!</h2>
-        <ul>
-          { projects }
-        </ul>
+        <h4>Your Projects</h4>
+        { projects }
+        <h4>Projects You've Backed</h4>
+        { backedProjects }
       </div>
     )
   }

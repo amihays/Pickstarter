@@ -139,10 +139,10 @@ window.ProjectForm = React.createClass({
           </div>
 
           <div className='form-group'>
-            <label htmlFor='project_image'>Upload Project Image</label>
+            <label htmlFor='project_image'>Add a Project Image</label>
             <a href="#"
                id='project_image'
-               onClick={this._uploadImage}>Upload Image</a>
+               onClick={this._uploadImage}> Upload File</a>
           </div>
 
           <button type="submit" className="btn btn-default">Create Project!</button>

@@ -11,7 +11,7 @@
 
 <% if current_user %>
   <script>
-    window.CURRENT_USER = JSON.parse('<%= current_user.to_json(except: [:password_digest, :session_token]).html_safe %>');
+    window.CURRENT_USER = JSON.parse('<%= current_user.to_json(only: [:username, :id]).html_safe %>');
   </script>
 <% else %>
   <nav class="navbar navbar-default">
