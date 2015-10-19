@@ -17,17 +17,21 @@ window.ContributeModal = React.createClass({
     return (
       <div className='modal is-active'>
         <div className='modal-content'>
-          <button onClick={this.props.close}>Close</button>
+          <button className='modal-close' onClick={this.props.close}>X</button>
           <Error/>
           <h2>Back this project</h2>
           <form onSubmit={this.submitForm}>
-            <label htmlFor='contribution_amount'>$</label>
-            <input type='text'
-                   id='contribution_amount'
-                   value={this.state.amount}
-                   placeholder="How much would you like to contribute?"
-                   onChange={this.handleAmountChange}/>
-            <button type='submit'>Submit</button>
+            <div className='form-group'>
+              <label htmlFor='contribution_amount'
+                     className='contribution-amount-label'>$</label>
+              <input type='text'
+                     id='contribution_amount'
+                     value={this.state.amount}
+                     className='form-control contribution-input'
+                     placeholder='How much would you like to contribute?'
+                     onChange={this.handleAmountChange}/>
+            </div>
+            <button type='submit' className="btn btn-default">Submit</button>
           </form>
         </div>
         <div className='modal-screen'/>

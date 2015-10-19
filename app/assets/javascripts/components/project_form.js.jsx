@@ -70,6 +70,20 @@ window.ProjectForm = React.createClass({
     }.bind(this));
   },
 
+  _uploadSoundClip: function (e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget({
+      cloud_name: 'daqcetxc6',
+      upload_preset: 'ohbj4mzd',
+    }, function(error, result) {
+      if (error) {
+        console.log(error)
+      } else {
+        this.setState({sound_clip_url: result[0]['url']})
+      }
+    }.bind(this));
+  },
+
   render: function () {
     return(
       <div className='container project-form-container'>
@@ -143,6 +157,13 @@ window.ProjectForm = React.createClass({
             <a href="#"
                id='project_image'
                onClick={this._uploadImage}> Upload File</a>
+          </div>
+
+          <div className='form-group'>
+            <label htmlFor='project_sound_clip'>Add a Music Clip</label>
+            <a href="#"
+               id='project_sound_clip'
+               onClick={this._uploadSoundClip}> Upload Music Clip</a>
           </div>
 
           <button type="submit" className="btn btn-default">Create Project!</button>

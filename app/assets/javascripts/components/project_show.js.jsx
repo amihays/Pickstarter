@@ -91,6 +91,14 @@ window.ProjectShow = React.createClass({
         </div>
         <div className='row'>
           <div className='col-sm-4'>
+            <h3>Music Clip</h3>
+          </div>
+          <div className='col-sm-8 project-artist'>
+            <audio className='audio-controls' controls='controls' src={this.state.project.sound_clip_url} type="audio/mpeg">Your browser doesn't support the audio element</audio>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-sm-4'>
             <h3>Funding Goal</h3>
           </div>
           <div className='col-sm-8 project-funding-goal'>
