@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_signed_out!, only: [:new, :create]
 
-
   def new
     @user = User.new
     render :new
@@ -16,6 +15,10 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = current_user
   end
 
   private

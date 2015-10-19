@@ -20,6 +20,12 @@ window.Error = React.createClass({
   },
 
   render: function () {
-    return (<div>{this.state.errors}</div>);
+    return (<ul className='errors'>
+      {
+        this.state.errors.map(function(error, idx) {
+          return <li key={idx}>{error}</li>
+        })
+      }
+    </ul>);
   }
 })

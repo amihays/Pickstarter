@@ -77,9 +77,18 @@ window.ApiUtil = {
         // ApiActions.receiveErrors(errorMessages);
       }
     })
+  },
+
+  fetchCurrentUser: function () {
+    $.ajax({
+      url: 'users/' + window.CURRENT_USER.id,
+      type: 'get',
+      success: function (user) {
+        ApiActions.receiveCurrentUser(user);
+      },
+      error: function () {
+        console.log("Failed fetchCurrentUser request");
+      }
+    })
   }
-  //
-  // fetchProject: function () {
-  //
-  // }
 }

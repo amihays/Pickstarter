@@ -21,6 +21,10 @@ window.ProjectShow = React.createClass({
     ProjectStore.removeChangeListener(this._onProjectsChange);
   },
 
+  handleEditButtonClick: function () {
+    // this.props.history.pushState({project: this.state.project}, '/projects/' + this.state.project.id + '/edit', {});
+  }, // How to pass in project info?
+
   render: function () {
     var style = {};
     if (this.state.project.image_url) {
@@ -28,6 +32,16 @@ window.ProjectShow = React.createClass({
         backgroundImage: 'url(' + this.state.project.image_url + ')'
       };
     }
+
+    var editButton = ''; // change so only shows before project deadline
+    if (window.CURRENT_USER.id === parseInt(this.state.project.user_id) &&
+        new Date(this.state.project.deadline) > new Date()) {
+      // editButton = (
+      //   <button onClick={this.handleEditButtonClick}>Edit Project</button>
+      // )
+      editButton = ( <button>Edit Project</button> );
+    }
+
 
     return(
       <div className='container project-show-container'>
@@ -43,7 +57,7 @@ window.ProjectShow = React.createClass({
             <img className='project-show-image' src={this.state.project.image_url} />
           </div>
           <div className='col-sm-5 col-sm-offset-1'>
-            <div className='project-show-sidebar'>
+            <div className='project-show-sidebar lightest-grey'>
 
             </div>
           </div>
@@ -70,6 +84,11 @@ window.ProjectShow = React.createClass({
           </div>
           <div className='col-sm-8 project-description'>
             <h3 className='grey'>{this.state.project.description}</h3>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-sm-4'>
+            {editButton}
           </div>
         </div>
       </div>

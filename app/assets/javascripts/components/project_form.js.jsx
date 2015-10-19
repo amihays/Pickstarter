@@ -2,15 +2,27 @@ window.ProjectForm = React.createClass({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
-    return {
-      title: '',
-      description: '',
-      genre_id: '',
-      deadline: '',
-      artist_name: '',
-      funding_goal: '',
-      genres: GenreStore.all()
-    };
+    if (this.props.project) {
+      return {
+        title: this.props.project.title || '',
+        description: this.props.project.description || '',
+        genre_id: this.props.project.genre_id || '',
+        deadline: this.props.project.deadline || '',
+        artist_name: this.props.project.artist_name || '',
+        funding_goal: this.props.project.funding_goal || '',
+        genres: GenreStore.all()
+      };
+    } else {
+      return {
+        title: '',
+        description: '',
+        genre_id: '',
+        deadline: '',
+        artist_name: '',
+        funding_goal: '',
+        genres: GenreStore.all()
+      };
+    }
   },
 
   componentDidMount: function () {
@@ -71,6 +83,7 @@ window.ProjectForm = React.createClass({
                    className='form-control'
                    id='project_title'
                    value={this.state.title}
+                   placeholder="A memorable name for your project..."
                    onChange={this.handleInputChange.bind(null, 'title')}/>
           </div>
 
@@ -79,13 +92,16 @@ window.ProjectForm = React.createClass({
             <input type='text'
                    className='form-control'
                    id='project_artist'
+                   placeholder="Artist name..."
                    value={this.state.artist_name}
                    onChange={this.handleInputChange.bind(null, 'artist_name')}/>
           </div>
 
           <div className='form-group'>
             <label htmlFor='project_genre'>Genre</label>
-            <select id='project_genre' className='form-control' onChange={this.handleInputChange.bind(null, 'genre_id')}>
+            <select id='project_genre'
+                    className='form-control'
+                    onChange={this.handleInputChange.bind(null, 'genre_id')}>
               <option></option>
               {
                 this.state.genres.map(function (genre) {
@@ -99,6 +115,7 @@ window.ProjectForm = React.createClass({
             <label htmlFor='project_description'>Description</label>
             <textarea id='project_description'
                       className='form-control'
+                      placeholder="What will you do with the funds?"
                       value={this.state.description}
                       onChange={this.handleInputChange.bind(null, 'description')}/>
           </div>

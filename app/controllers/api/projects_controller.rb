@@ -2,10 +2,9 @@ class Api::ProjectsController < ApplicationController
 
   def create
     project_info = project_params
-    begin
-      Date.parse(project_info[:deadline])
-    rescue
-      
+
+    if project_info[:deadline] != ''
+      project_info[:deadline] = Date.parse(project_info[:deadline])
     end
     project_info[:user_id] = current_user.id
     @project = Project.new(project_info)
