@@ -83,7 +83,7 @@ window.ProjectForm = React.createClass({
                    className='form-control'
                    id='project_title'
                    value={this.state.title}
-                   placeholder="A memorable name for your project..."
+                   placeholder="Give a name for your project..."
                    onChange={this.handleInputChange.bind(null, 'title')}/>
           </div>
 
@@ -140,7 +140,9 @@ window.ProjectForm = React.createClass({
 
           <div className='form-group'>
             <label htmlFor='project_image'>Upload Project Image</label>
-            <a href="#" id="upload_widget_opener" id='project_image' onClick={this._uploadImage}>Upload Image</a>
+            <a href="#"
+               id='project_image'
+               onClick={this._uploadImage}>Upload Image</a>
           </div>
 
           <button type="submit" className="btn btn-default">Create Project!</button>

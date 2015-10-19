@@ -21,4 +21,9 @@ class Project < ActiveRecord::Base
 
   belongs_to :genre
   belongs_to :user
+
+  has_many :contributions
+  has_many :contributors,
+    through: :contributions,
+    source: :users
 end

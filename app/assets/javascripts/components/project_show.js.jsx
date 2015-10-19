@@ -1,7 +1,9 @@
+// var Modal = React.Modal;
+
 window.ProjectShow = React.createClass({
   getStateFromStore: function () {
     var project = ProjectStore.find(parseInt(this.props.params.id)) || {};
-    return {project: project};
+    return {project: project, modalIsOpen: false};
   },
 
   getInitialState: function () {
@@ -10,6 +12,10 @@ window.ProjectShow = React.createClass({
 
   _onProjectsChange: function () {
     this.setState(this.getStateFromStore());
+  },
+
+  deadlinePassed: function () { //this is totally backward - why?!!
+    return !(new Date(this.state.project.deadline) > new Date());
   },
 
   componentDidMount: function () {
@@ -25,6 +31,14 @@ window.ProjectShow = React.createClass({
     // this.props.history.pushState({project: this.state.project}, '/projects/' + this.state.project.id + '/edit', {});
   }, // How to pass in project info?
 
+  openContribute: function () {
+    this.setState({modalIsOpen: true});
+  },
+
+  closeContribute: function () {
+    this.setState({modalIsOpen: false});
+  },
+
   render: function () {
     var style = {};
     if (this.state.project.image_url) {
@@ -35,13 +49,12 @@ window.ProjectShow = React.createClass({
 
     var editButton = ''; // change so only shows before project deadline
     if (window.CURRENT_USER.id === parseInt(this.state.project.user_id) &&
-        new Date(this.state.project.deadline) > new Date()) {
+        !this.deadlinePassed()) {
       // editButton = (
       //   <button onClick={this.handleEditButtonClick}>Edit Project</button>
       // )
       editButton = ( <button>Edit Project</button> );
     }
-
 
     return(
       <div className='container project-show-container'>
@@ -58,7 +71,7 @@ window.ProjectShow = React.createClass({
           </div>
           <div className='col-sm-5 col-sm-offset-1'>
             <div className='project-show-sidebar lightest-grey'>
-
+              <button onClick={this.openContribute}>Contribute!</button>
             </div>
           </div>
         </div>
@@ -75,7 +88,7 @@ window.ProjectShow = React.createClass({
             <h3>Funding Goal</h3>
           </div>
           <div className='col-sm-8 project-funding-goal'>
-            <h3 className='grey'>{this.state.project.funding_goal}</h3>
+            <h3 className='grey'>${this.state.project.funding_goal}</h3>
           </div>
         </div>
         <div className='row'>
@@ -95,3 +108,14 @@ window.ProjectShow = React.createClass({
     )
   }
 })
+//
+// <Modal isOpen={this.state.modalIsOpen}
+//        onRequestClose={this.closeContribute}
+//        className='contribute-modal'>
+//        <h2>Contribute to {this.state.project.title}</h2>
+//        <button onClick={this.closeContribute}>Close</button>
+//        <form>
+//          <label htmlFor='contribute-amount'>$</label>
+//          <input id='contribute-amount' type='text'/>
+//        </form>
+// </Modal>

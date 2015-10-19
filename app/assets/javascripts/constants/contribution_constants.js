@@ -1,0 +1,3 @@
+window.ContributionConstants = {
+  CONTRIBUTIONS_RECEIVED: "CONTRIBUTIONS_RECEIVED"
+}
