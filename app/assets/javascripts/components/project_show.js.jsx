@@ -1,5 +1,3 @@
-// var Modal = React.Modal;
-
 window.ProjectShow = React.createClass({
   getStateFromStore: function () {
     var project = ProjectStore.find(parseInt(this.props.params.id)) || {};
@@ -56,8 +54,16 @@ window.ProjectShow = React.createClass({
       editButton = ( <button>Edit Project</button> );
     }
 
+    var modal = '';
+    if (this.state.modalIsOpen) {
+      modal = (
+        <ContributeModal close={this.closeContribute} project={this.state.project}/>
+      );
+    }
+
     return(
       <div className='container project-show-container'>
+        { modal }
         <div className='row'>
           <div className='col-sm-12'>
             <div className='project-title'>
@@ -107,15 +113,4 @@ window.ProjectShow = React.createClass({
       </div>
     )
   }
-})
-//
-// <Modal isOpen={this.state.modalIsOpen}
-//        onRequestClose={this.closeContribute}
-//        className='contribute-modal'>
-//        <h2>Contribute to {this.state.project.title}</h2>
-//        <button onClick={this.closeContribute}>Close</button>
-//        <form>
-//          <label htmlFor='contribute-amount'>$</label>
-//          <input id='contribute-amount' type='text'/>
-//        </form>
-// </Modal>
+});
