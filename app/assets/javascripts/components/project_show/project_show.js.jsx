@@ -51,7 +51,7 @@ window.ProjectShow = React.createClass({
       // editButton = (
       //   <button onClick={this.handleEditButtonClick}>Edit Project</button>
       // )
-      editButton = ( <button>Edit Project</button> );
+      editButton = ( <button className='btn btn-default'>Edit Project</button> );
     }
 
     var modal = '';
@@ -59,6 +59,20 @@ window.ProjectShow = React.createClass({
       modal = (
         <ContributeModal close={this.closeContribute} project={this.state.project}/>
       );
+    }
+
+    var musicClip = '';
+    if (this.state.project.sound_clip_url) {
+      musicClip = (
+        <div className='row'>
+          <div className='col-sm-4'>
+            <h3>Music Clip</h3>
+          </div>
+          <div className='col-sm-8 project-artist'>
+            <audio className='audio-controls' controls='controls' src={this.state.project.sound_clip_url} type="audio/mpeg">Your browser doesn't support the audio element</audio>
+          </div>
+        </div>
+      )
     }
 
     return(
@@ -76,9 +90,7 @@ window.ProjectShow = React.createClass({
             <img className='project-show-image' src={this.state.project.image_url} />
           </div>
           <div className='col-sm-5 col-sm-offset-1'>
-            <div className='project-show-sidebar lightest-grey'>
-              <button onClick={this.openContribute}>Contribute!</button>
-            </div>
+            <ProjectShowSidebar project={this.state.project} openContribute={this.openContribute}/>
           </div>
         </div>
         <div className='row'>
@@ -89,14 +101,7 @@ window.ProjectShow = React.createClass({
             <h3 className='grey'>{this.state.project.artist_name}</h3>
           </div>
         </div>
-        <div className='row'>
-          <div className='col-sm-4'>
-            <h3>Music Clip</h3>
-          </div>
-          <div className='col-sm-8 project-artist'>
-            <audio className='audio-controls' controls='controls' src={this.state.project.sound_clip_url} type="audio/mpeg">Your browser doesn't support the audio element</audio>
-          </div>
-        </div>
+        { musicClip }
         <div className='row'>
           <div className='col-sm-4'>
             <h3>Funding Goal</h3>

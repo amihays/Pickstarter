@@ -3,10 +3,15 @@ window.ContributeModal = React.createClass({
     return {amount: ''}
   },
 
+  closeAndFetchProject: function () {
+    ApiUtil.fetchProject(this.props.project.id);
+    this.props.close();
+  },
+
   submitForm: function (e) {
     e.preventDefault();
     params = $.extend({}, this.state, {project_id: this.props.project.id})
-    ApiUtil.createContribution(params, this.props.close);
+    ApiUtil.createContribution(params, this.closeAndFetchProject);
   },
 
   handleAmountChange: function (e) {

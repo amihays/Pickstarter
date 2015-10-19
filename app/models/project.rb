@@ -25,5 +25,5 @@ class Project < ActiveRecord::Base
   has_many :contributions
   has_many :contributors,
     through: :contributions,
-    source: :users
+    source: :user
 end
