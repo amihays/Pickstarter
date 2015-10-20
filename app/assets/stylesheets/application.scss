@@ -17,6 +17,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.margins-30-px {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.margins-50-px {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .percent-funded-bar {
   width: 150px;
   height: 20px;
@@ -57,6 +67,7 @@
   width: 80%;
   margin-left: 50%;
   transform: translateX(-50%);
+  margin-top: 10px;
 }
 
 .audio-controls {
@@ -127,7 +138,7 @@ ul.errors {
 }
 
 .project-show-sidebar {
-  height: 400px;
+  padding: 30px;
   background-color: #f8f8f8;
   border-radius: 10px;
 }

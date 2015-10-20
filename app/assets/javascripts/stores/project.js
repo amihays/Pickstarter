@@ -58,6 +58,10 @@
           swapProject(payload.project);
           ProjectStore.emit(PROJECTS_CHANGE_EVENT);
           break;
+        case ProjectConstants.PROJECTS_RECEIVED:
+          resetProjects(payload.projects);
+          ProjectStore.emit(PROJECTS_CHANGE_EVENT);
+          break;
       }
     })
   })

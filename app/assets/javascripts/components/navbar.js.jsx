@@ -25,7 +25,7 @@ window.Navbar = React.createClass({
     );
 
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-default no-margin">
       <div className="container-fluid">
 
         <div className="navbar-header">
@@ -52,7 +52,7 @@ window.Navbar = React.createClass({
               </a>
             </li>
             <li>
-              <a className="genres-link" href="#/">
+              <a className="genres-link" href="#/genres">
                 <button className="navbar-links no-border">Discover</button>
               </a>
             </li>

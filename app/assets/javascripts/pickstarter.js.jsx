@@ -7,7 +7,7 @@ window.Routes = function () {
   React.render((
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={GenresIndex}/>
+        <IndexRoute component={ProjectsIndex}/>
         <Route path="genres" component={GenresIndex}/>
         <Route path="genres/:id" component={GenreShow}/>
         <Route path="projects/new" component={ProjectForm}/>

@@ -16,6 +16,14 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  def index
+    if params[:order]
+      Project.projects_by(params[:order])
+    else
+      @projects = Project.all
+    end
+  end
+
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)

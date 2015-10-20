@@ -32,11 +32,11 @@ window.GenreShow = React.createClass({
     var projects;
     if (this.state.genre.projects){
       projects = this.state.genre.projects.map(function(project) {
-        return <div key={project.id} className="col-md-4 col-sm-6 col-xs-8"><ProjectsIndexItem key={project.id} project={project}/></div>
+        return <div key={project.id} className="col-md-4 col-sm-6 col-xs-8"><ProjectsIndexItem project={project}/></div>
       });
     }
     return(
-      <div className="container">
+      <div className="container margins-30-px">
         <div className="jumbotron genre-header-jumbotron">
           <h1 className="genre-header">{this.state.genre.name}</h1>
         </div>

@@ -26,4 +26,19 @@ class Project < ActiveRecord::Base
   has_many :contributors,
     through: :contributions,
     source: :user
+
+  def projects_by(order)
+    Project.all
+    # case order
+    # when 'alpha'
+    #   "It's between 1 and 5"
+    # when 'reverse_alpha'
+    #   "It's 6"
+    # when ''
+    #   "You passed a string"
+    # when ''
+    #   "You gave me #{a} -- I have no idea what to do with that."
+    # else
+    #   Project.all
+  end
 end

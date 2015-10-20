@@ -1,3 +1,4 @@
 window.ProjectConstants = {
-  PROJECT_RECEIVED: "project_received"
+  PROJECT_RECEIVED: "PROJECT_RECEIVED",
+  PROJECTS_RECEIVED: "PROJECTS_RECEIVED"
 }

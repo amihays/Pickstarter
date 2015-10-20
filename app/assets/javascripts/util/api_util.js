@@ -48,6 +48,19 @@ window.ApiUtil = {
     })
   },
 
+  fetchProjects: function () {
+    $.ajax({
+      url: "api/projects",
+      type: "get",
+      success: function (projects) {
+        ApiActions.receiveProjects(projects);
+      },
+      error: function () {
+        console.log("Failed fetchProjects request");
+      }
+    })
+  },
+
   createProject: function (params) {
     $.ajax({
       url: 'api/projects',
@@ -89,6 +102,20 @@ window.ApiUtil = {
       },
       error: function () {
         console.log("Failed fetchCurrentUser request");
+      }
+    })
+  },
+
+  fetchOrderedProjects: function(order) {
+    $.ajax({
+      url: "api/projects",
+      type: "get",
+      params: {order: order},
+      success: function (projects) {
+        ApiActions.receiveProjects(projects);
+      },
+      error: function () {
+        console.log("Failed fetchProjects request");
       }
     })
   }

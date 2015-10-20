@@ -86,7 +86,7 @@ window.ProjectForm = React.createClass({
 
   render: function () {
     return(
-      <div className='container project-form-container'>
+      <div className='container project-form-container margins-50-px'>
         <div className="row">
           <Error/>
         </div>
