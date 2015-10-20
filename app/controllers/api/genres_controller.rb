@@ -4,7 +4,7 @@ class Api::GenresController < ApplicationController
   end
 
   def show
-    @genre = Genre.find(params[:id])
+    @genre = Genre.includes(:projects).find(params[:id])
     render :show
   end
 

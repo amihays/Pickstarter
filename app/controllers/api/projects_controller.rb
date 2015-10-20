@@ -1,5 +1,6 @@
 class Api::ProjectsController < ApplicationController
 
+
   def create
     project_info = project_params
 
@@ -18,9 +19,9 @@ class Api::ProjectsController < ApplicationController
 
   def index
     if params[:order]
-      Project.projects_by(params[:order])
+      @projects = Project.projects_by(params[:order])
     else
-      @projects = Project.all
+      @projects = Project.projects_by('alpha')
     end
   end
 
@@ -34,7 +35,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:contributors, :contributions, :genre, :user).find(params[:id])
   end
 
   def destroy

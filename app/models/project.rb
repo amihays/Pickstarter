@@ -27,18 +27,22 @@ class Project < ActiveRecord::Base
     through: :contributions,
     source: :user
 
-  def projects_by(order)
-    Project.all
-    # case order
-    # when 'alpha'
-    #   "It's between 1 and 5"
-    # when 'reverse_alpha'
-    #   "It's 6"
-    # when ''
-    #   "You passed a string"
-    # when ''
+  def self.projects_by(order)
+    # Project.all
+    case order
+    when 'alpha'
+      return Project.includes(:contributors, :contributions, :genre, :user).order(:title) # ordering by ord instead of char?!
+    when 'reverse_alpha'
+      return Project.includes(:contributors, :contributions, :genre, :user).order(title: :desc) # ordering by ord instead of char?!
+    when 'popularity'
+      return Project.includes(:contributors, :contributions, :genre, :user).order(:funding_goal)
+    #   Project.joins('LEFT OUTER JOIN contributions ON contributions.project_id = projects.id').group('projects.id').reverse_order('COUNT(*)')
+    # when 'end_date'
     #   "You gave me #{a} -- I have no idea what to do with that."
-    # else
-    #   Project.all
+    # when 'newest'
+    #
+    else
+      return Project.all
+    end
   end
 end

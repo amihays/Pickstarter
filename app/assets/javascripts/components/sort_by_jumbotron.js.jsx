@@ -3,8 +3,12 @@ window.SortByJumbotron = React.createClass({
     return {order: 'alpha'}
   },
 
-  handleSortByChange: function (e) {
-    this.setState({order: e.target.value});
+  handleSortByChange: function (e) { // 'this' is window here... why?!!
+    this.setState({order: e.target.value},
+      this._fetchOrderedProjects);
+  },
+
+  _fetchOrderedProjects: function() {
     ApiUtil.fetchOrderedProjects(this.state.order);
   },
 

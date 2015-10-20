@@ -1,7 +1,19 @@
 window.ProjectShowSidebar = React.createClass({
   contributorsCount: function () {
     if (this.props.project.contributors){
-      return String(this.props.project.contributors.length);
+      uniqueContributors = [];
+      this.props.project.contributors.forEach(function(contributor) {
+        var found = false;
+        uniqueContributors.forEach(function(uniqueContributor) {
+          if (uniqueContributor.id === contributor.id) {
+            found = true;
+          }
+        })
+        if (found === false) {
+          uniqueContributors.push(contributor);
+        }
+      })
+      return String(uniqueContributors.length);
     }
     else {
       return '0';
@@ -71,10 +83,17 @@ window.ProjectShowSidebar = React.createClass({
       )
     }
 
+    var backers;
+    if (this.contributorsCount() === '1') {
+      backers = 'backer'
+    } else {
+      backers = 'backers'
+    }
+
     return (
       <div className='project-show-sidebar lightest-grey'>
         <h1 className='text-center no-margin'>{this.contributorsCount()}</h1>
-        <h4 className='text-center no-margin'>backers</h4>
+        <h4 className='text-center no-margin'>{backers}</h4>
         { daysLeft }
         <h1 className='text-center top-padding no-margin'>${this.amountRaised()}</h1>
         <h4 className='text-center no-margin'>raised of ${this.props.project.funding_goal} goal</h4>

@@ -24,7 +24,7 @@ window.ContributeModal = React.createClass({
         <div className='modal-content'>
           <button className='modal-close' onClick={this.props.close}>X</button>
           <Error/>
-          <h2>Back this project</h2>
+          <h2 className='contribute-modal-title'>Back this project</h2>
           <form onSubmit={this.submitForm}>
             <div className='form-group'>
               <label htmlFor='contribution_amount'

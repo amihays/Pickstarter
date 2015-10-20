@@ -107,10 +107,11 @@ window.ApiUtil = {
   },
 
   fetchOrderedProjects: function(order) {
+    debugger;
     $.ajax({
       url: "api/projects",
       type: "get",
-      params: {order: order},
+      data: {order: order},
       success: function (projects) {
         ApiActions.receiveProjects(projects);
       },
