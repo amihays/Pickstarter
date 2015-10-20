@@ -16,10 +16,6 @@ window.ProjectsIndex = React.createClass({
     ProjectStore.removeChangeListener(this._onProjectsChange);
   },
 
-  sortBy: function (order) {
-
-  },
-
   render: function () {
     var projects = '';
     if (this.state.projects) {
@@ -39,7 +35,7 @@ window.ProjectsIndex = React.createClass({
     }
     return (
       <div className='projects-index'>
-        <SortByJumbotron projects={this.state.projects} sortBy={this.sortBy}/>
+        <SortByJumbotron projects={this.state.projects}/>
         <div className='container-fluid'>
           { projects }
         </div>

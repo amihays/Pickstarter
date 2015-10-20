@@ -7,7 +7,7 @@ window.SortByJumbotron = React.createClass({
     this._fetchOrderedProjects();
   },
 
-  _handleSortByChange: function (e) { // 'this' is window here... why?!!
+  _handleSortByChange: function (e) {
     this.setState({order: e.target.value},
       this._fetchOrderedProjects);
   },
