@@ -18,10 +18,12 @@ class Api::ProjectsController < ApplicationController
   end
 
   def index
-    if params[:order]
-      @projects = Project.projects_by(params[:order])
+    order = params[:order] || 'popularity'
+    showAll = params[:allProjects] || 'false'
+    if showAll === 'true'
+      @projects = Project.projects_by(order)
     else
-      @projects = Project.projects_by('alpha')
+      @projects = Project.unfinished_projects_by(order)
     end
   end
 
