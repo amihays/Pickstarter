@@ -42,7 +42,7 @@ window.Navbar = React.createClass({
         <div className="collapse navbar-collapse" id="collapse-menu">
           <ul className="nav navbar-nav pull-left">
             <a className="navbar-brand" href="#/">
-              <button className="logo no-border"><img className="brand" src="assets/PICKSTARTER-logo.png"/></button>
+              <button className="logo no-border"><img className="brand" src="http://res.cloudinary.com/daqcetxc6/image/upload/v1445384142/genres/PICKSTARTER-logo.png"/></button>
             </a>
           </ul>
           <ul className="nav navbar-nav pull-right">

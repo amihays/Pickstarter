@@ -17,9 +17,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.jumbotron.homepage-header-jumbotron {
+  background-image: url("http://res.cloudinary.com/daqcetxc6/image/upload/c_crop,h_774,w_1920/v1445397842/genres/drum-poster-wallpaper-hd.jpg");
+  background-size: cover;
+  height: 450px;
+}
+
+.genres-index-jumbotron {
+  height: 400px;
+  background-image: url("http://res.cloudinary.com/daqcetxc6/image/upload/c_crop,h_545,w_1400,y_198/v1445388726/genres/genres-banner.jpg");
+
+  opacity: 100%;
+}
+
+h1.genres-index-header {
+  text-align: center;
+  color: white;
+  margin-top: 0px;
+  font-size: 80px;
+  // text-shadow:
+  //   -1px -1px 0 black,
+  //    1px -1px 0 black,
+  //   -1px  1px 0 black,
+  //    1px  1px 0 black;
+}
+
+.genres-index-subheader {
+  text-align: center;
+  color: black;
+  font-size: 25px;
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+}
+
 .margins-30-px {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.margins-15-px {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .margins-50-px {
@@ -203,8 +244,11 @@ div.container.genres-index {
 }
 
 a.navbar-brand {
-  padding-top: 7px;
-  padding-bottom: 6px;
+  padding-top: 0px;
+}
+
+.navbar {
+  margin: 0px;
 }
 
 button.logo {
@@ -218,8 +262,6 @@ button.navbar-links {
 }
 
 div.genre-index-item {
-  margin-bottom: 30px;
-  overflow: hidden;
   position: relative;
 }
 
@@ -228,7 +270,8 @@ h1.genre-header {
 }
 
 img.genre-image {
-  height: 250px;
+  width: 100%;
+  opacity: 0.95;
 }
 
 div.genre-index-item:hover {
@@ -237,20 +280,25 @@ div.genre-index-item:hover {
 
 h1.genre-text {
   display: block;
-  text-size: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 40px;
+  // margin-left: auto;
+  // margin-right: auto;
+  text-align: center;
   z-index: 2;
   position: absolute;
-  top: 33%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, 0); // move 50% of text width to the left
+  transform: translate(-50%, -50%); // move 50% of text width to the left
   color: black;
   text-shadow:
-    -1px -1px 0 #BBB,
-    1px -1px 0 #BBB,
-    -1px 1px 0 #BBB,
-    1px 1px 0 #BBB;
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+    // -1px -1px 0 #BBB,
+    // 1px -1px 0 #BBB,
+    // -1px 1px 0 #BBB,
+    // 1px 1px 0 #BBB;
 }
 
 .container.project-form-container {
@@ -259,6 +307,18 @@ h1.genre-text {
 
 button.btn.btn-default {
   width: 100%;
+  background-color: #70a4a7;
+  font-weight: 450;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-width: 0px;
+}
+
+button.btn.btn-default:focus {
+  outline: none;
+  background-color: #5A8386
 }
 
 button.no-border:focus{

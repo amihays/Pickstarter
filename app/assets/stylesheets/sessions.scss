@@ -2,29 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar.navbar-default {
+  border-radius: 0px;
+  z-index: 2;
+}
+
+img.background {
+  z-index: 1;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 h5.error-messages {
   color: red;
   font-size: 16px;
 }
 
 .container.sign-in {
+  position: relative;
+  z-index: 2;
+  margin-top: 50px;
+  padding-bottom: 20px;
   width: 400px;
   border-width: 1px;
+  background: rgba(225, 225, 225, .8);
+  border-radius: 10px;
 }
 
 img.brand {
   height: 40px;
+  margin-top: 3px;
 }
 
-button.btn.btn-default {
-  width: 100%;
-  background-color: #70a4a7;
-  font-weight: 450;
-  color: black;
-  font-size: 16px;
-}
-
-button.btn.btn-default:focus {
+button.logo:focus {
   outline: none;
-  background-color: #5A8386
+}
+
+button.sign-in.logo:hover {
+  cursor: default;
 }

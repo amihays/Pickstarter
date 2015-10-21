@@ -22,7 +22,7 @@ window.ContributeModal = React.createClass({
     return (
       <div className='modal is-active'>
         <div className='modal-content'>
-          <button className='modal-close' onClick={this.props.close}>X</button>
+          <button className='modal-close' onClick={this.props.close}>&times;</button>
           <Error/>
           <h2 className='contribute-modal-title'>Back this project</h2>
           <form onSubmit={this.submitForm}>
