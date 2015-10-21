@@ -22,20 +22,32 @@ window.SortByJumbotron = React.createClass({
   },
 
   render: function () {
+    var checkbox;
+    if (this.state.allProjects) {
+      checkbox = <div className="checkbox checked" onClick={this._handleShowAllChange}>&#10008;</div>;
+    } else {
+      checkbox = <div className="checkbox unchecked" onClick={this._handleShowAllChange}></div>;
+    }
+
     return (
       <div className="jumbotron homepage-header-jumbotron">
         <h1 className="homepage-header">Welcome to Pickstarter</h1>
-        <label htmlFor='sort-by-select'>Sort By</label>
-        <select id='sort-by-select'
-                onChange={this._handleSortByChange}>
-          <option value='popularity'>Popularity</option>
-          <option value='alpha'>A - Z</option>
-          <option value='reverse_alpha'>Z - A</option>
-          <option value='end_date'>End Date</option>
-          <option value='newest'>Newest</option>
-        </select>
-        <label htmlFor='cbox'>Show projects past funding deadline</label>
-        <input type="checkbox" id="cbox" onClick={this._handleShowAllChange}/>
+        <form className="sort-by-form">
+          <div className="form-group">
+            <select id='sort-by-select'
+                    onChange={this._handleSortByChange}
+                    className="form-control">
+              <option value='popularity'>Popularity</option>
+              <option value='alpha'>A - Z</option>
+              <option value='reverse_alpha'>Z - A</option>
+              <option value='end_date'>End Date</option>
+              <option value='newest'>Newest</option>
+            </select>
+            <label className="homepage-label" htmlFor='sort-by-select'>Sort By</label>
+          </div>
+          { checkbox }
+          <label className="homepage-label" htmlFor='cbox'>Show projects past funding deadline</label>
+        </form>
       </div>
     )
   }
