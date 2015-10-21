@@ -8,6 +8,23 @@ window.UserProfile = React.createClass({
     this.setState({user: user});
   },
 
+  uniqueBackedProjects: function () {
+    var result = [];
+    if (this.state.user.backed_projects) {
+      this.state.user.backed_projects.forEach(function(project) {
+        var found = false;
+        result.forEach(function(uniqueProject) {
+          if (project.title === uniqueProject.title)
+          found = true;
+        })
+        if (!found) {
+          result.push(project);
+        }
+      });
+    }
+    return result;
+  },
+
   componentDidMount: function () {
     UserStore.addChangeListener(this._onChange);
     ApiUtil.fetchCurrentUser();
@@ -21,42 +38,63 @@ window.UserProfile = React.createClass({
     var projects;
     if (this.state.user.projects) {
       projects =
-      <ul>
+      <div className="row">
         {
           this.state.user.projects.map(function(project) {
             return (
-              <li>
-                { project.title }
-              </li>
+              <div className="col-md-4 col-sm-6 col-xs-8" key={project.id}>
+                <ProjectsIndexItem project={project}/>
+              </div>
             )
           })
         }
-      </ul>
+      </div>
     }
 
     var backedProjects;
     if (this.state.user.backed_projects) {
       backedProjects =
-      <ul>
+      <div className="row">
         {
-          this.state.user.backed_projects.map(function(project) {
+          this.uniqueBackedProjects().map(function(project) {
             return (
-              <li>
-                { project.title }
-              </li>
+              <div className="col-md-4 col-sm-6 col-xs-8" key={project.id}>
+                <ProjectsIndexItem project={project}/>
+              </div>
             )
           })
         }
-      </ul>
+      </div>
     }
 
     return (
-      <div>
-        <h2>Hi, {this.state.user.username}!</h2>
-        <h4>Your Projects</h4>
-        { projects }
-        <h4>Projects You've Backed</h4>
-        { backedProjects }
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            <h2>Hi, {this.state.user.username}!</h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <h4>Your Projects</h4>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            { projects }
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <h4>Projects You've Backed</h4>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            { backedProjects }
+          </div>
+        </div>
+
       </div>
     )
   }

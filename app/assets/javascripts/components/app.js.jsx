@@ -4,6 +4,7 @@ window.App = React.createClass({
       <div>
         <Navbar/>
         {this.props.children}
+        <Footer/>
       </div>
     )
   }

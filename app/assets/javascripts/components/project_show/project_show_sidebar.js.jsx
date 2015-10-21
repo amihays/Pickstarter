@@ -43,24 +43,7 @@ window.ProjectShowSidebar = React.createClass({
     }
   },
 
-  percentFunded: function () {
-    var goal = parseInt(this.props.project.funding_goal)
-    var percent = this.amountRaised()/goal * 100;
-    if (percent > 100) {
-      return 100;
-    } else {
-      return percent;
-    }
-  },
-
   render: function () {
-    var percentFundedBarStyle = {width: String(this.percentFunded()) + '%'};
-    var percentFundedBar = (
-      <div className='percent-funded-bar center'>
-        <div className='funding-fill' style={percentFundedBarStyle}></div>
-      </div>
-    );
-
     var daysLeft;
     if (this.daysLeft() > 0) {
       daysLeft = (
@@ -96,8 +79,8 @@ window.ProjectShowSidebar = React.createClass({
         <h4 className='text-center no-margin'>{backers}</h4>
         { daysLeft }
         <h1 className='text-center top-padding no-margin'>${this.amountRaised()}</h1>
-        <h4 className='text-center no-margin'>raised of ${this.props.project.funding_goal} goal</h4>
-        { percentFundedBar }
+        <h4 className='text-center margin-bottom-25px'>raised of ${this.props.project.funding_goal} goal</h4>
+        <PercentFundedBar project={this.props.project} width="150px" height="20px" marginTop="25px"/>
         { contributeButton }
       </div>
 

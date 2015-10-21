@@ -50,7 +50,7 @@ class Project < ActiveRecord::Base
     when 'newest'
       Project.includes(:contributors, :contributions, :genre, :user).
               where('deadline > ?', Date.today).
-              order(:created_at)
+              order(created_at: :desc)
     end
   end
 
@@ -72,7 +72,7 @@ class Project < ActiveRecord::Base
               order(:deadline)
     when 'newest'
       Project.includes(:contributors, :contributions, :genre, :user).
-              order(:created_at)
+              order(created_at: :desc)
     end
   end
 

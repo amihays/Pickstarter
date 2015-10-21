@@ -5,6 +5,16 @@ window.ProjectsIndexItem = React.createClass({
     this.history.pushState(null, '/projects/' + this.props.project.id, {});
   },
 
+  amountRaised: function () {
+    result = 0;
+    if (this.props.project.contributions) {
+      this.props.project.contributions.forEach(function(contribution){
+        result += contribution.amount;
+      })
+    }
+    return result;
+  },
+
   render: function () {
     var style = {};
     if (this.props.project.image_url) {
@@ -14,11 +24,11 @@ window.ProjectsIndexItem = React.createClass({
     }
     return (
       <div className="project-index-item" onClick={this.showProject}>
-        <div className="project-image-container" style={style}>
-        </div>
+        <div className="project-image-container" style={style}></div>
         <h6 className="project-text title">{this.props.project.title}</h6>
         <h6 className="project-text artist">{this.props.project.artist_name}</h6>
-        <h6 className="project-text description">{this.props.project.description}</h6>
+        <h6 className="project-text amount-raised">${this.amountRaised()} raised of ${this.props.project.funding_goal}</h6>
+        <PercentFundedBar project={this.props.project} width="75%" height="10px" marginTop="10px"/>
       </div>
     );
   }

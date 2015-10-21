@@ -6,12 +6,6 @@ json.contributors do
   end
 end
 
-json.contributions do
-  json.array! @project.contributions do |contribution|
-    json.partial! "api/contributions/contribution", contribution: contribution
-  end
-end
-
 json.genre do
   json.partial! "api/genres/genre", genre: @project.genre
 end

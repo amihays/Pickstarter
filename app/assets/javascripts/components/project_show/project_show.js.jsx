@@ -46,13 +46,13 @@ window.ProjectShow = React.createClass({
     }
 
     var editButton = ''; // change so only shows before project deadline
-    if (window.CURRENT_USER.id === parseInt(this.state.project.user_id) &&
-        !this.deadlinePassed()) {
-      // editButton = (
-      //   <button onClick={this.handleEditButtonClick}>Edit Project</button>
-      // )
-      editButton = ( <button className='btn btn-default'>Edit Project</button> );
-    }
+    // if (window.CURRENT_USER.id === parseInt(this.state.project.user_id) &&
+    //     !this.deadlinePassed()) {
+    //   // editButton = (
+    //   //   <button onClick={this.handleEditButtonClick}>Edit Project</button>
+    //   // )
+    //   editButton = ( <button className='btn btn-default'>Edit Project</button> );
+    // }
 
     var modal = '';
     if (this.state.modalIsOpen) {
@@ -66,9 +66,9 @@ window.ProjectShow = React.createClass({
       musicClip = (
         <div className='row'>
           <div className='col-sm-4'>
-            <h3>Music Clip</h3>
+            <h3>Music clip</h3>
           </div>
-          <div className='col-sm-8 project-artist'>
+          <div className='col-sm-7 project-music-clip'>
             <audio className='audio-controls' controls='controls' src={this.state.project.sound_clip_url} type="audio/mpeg">Your browser doesn't support the audio element</audio>
           </div>
         </div>
@@ -79,42 +79,33 @@ window.ProjectShow = React.createClass({
       <div className='container project-show-container'>
         { modal }
         <div className='row'>
-          <div className='col-sm-12'>
+          <div className='col-sm-8 col-sm-offset-2'>
             <div className='project-title'>
-              <h1>{this.state.project.title}</h1>
+              <h1 className='project-title'>{this.state.project.title}</h1>
             </div>
           </div>
         </div>
         <div className='row'>
-          <div className='col-sm-6'>
-            <img className='project-show-image' src={this.state.project.image_url} />
-          </div>
-          <div className='col-sm-5 col-sm-offset-1'>
-            <ProjectShowSidebar project={this.state.project} openContribute={this.openContribute}/>
+          <div className='col-sm-8 col-sm-offset-2'>
+            <div className='project-title'>
+              <h4 className='project-artist'>by <b>{this.state.project.artist_name}</b></h4>
+            </div>
           </div>
         </div>
         <div className='row'>
-          <div className='col-sm-4'>
-            <h3>Artist</h3>
+          <div className='col-sm-7'>
+            <img className='project-show-image' src={this.state.project.image_url} />
           </div>
-          <div className='col-sm-8 project-artist'>
-            <h3 className='grey'>{this.state.project.artist_name}</h3>
+          <div className='col-sm-4'>
+            <ProjectShowSidebar project={this.state.project} openContribute={this.openContribute}/>
           </div>
         </div>
         { musicClip }
         <div className='row'>
           <div className='col-sm-4'>
-            <h3>Funding Goal</h3>
+            <h3>About this project</h3>
           </div>
-          <div className='col-sm-8 project-funding-goal'>
-            <h3 className='grey'>${this.state.project.funding_goal}</h3>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-sm-4'>
-            <h3>Description</h3>
-          </div>
-          <div className='col-sm-8 project-description'>
+          <div className='col-sm-7 project-description'>
             <h3 className='grey'>{this.state.project.description}</h3>
           </div>
         </div>
@@ -127,3 +118,21 @@ window.ProjectShow = React.createClass({
     )
   }
 });
+
+// <div className='row'>
+//   <div className='col-sm-4'>
+//     <h3>Artist</h3>
+//   </div>
+//   <div className='col-sm-8 project-artist'>
+//     <h3 className='grey'>{this.state.project.artist_name}</h3>
+//   </div>
+// </div>
+//
+// <div className='row'>
+//   <div className='col-sm-4'>
+//     <h3>Funding Goal</h3>
+//   </div>
+//   <div className='col-sm-7 project-funding-goal'>
+//     <h3 className='grey'>${this.state.project.funding_goal}</h3>
+//   </div>
+// </div>
