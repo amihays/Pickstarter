@@ -66,7 +66,7 @@ window.ProjectShow = React.createClass({
       musicClip = (
         <div className='row'>
           <div className='col-sm-4'>
-            <h3>Music clip</h3>
+            <h3>Listen now</h3>
           </div>
           <div className='col-sm-7 project-music-clip'>
             <audio className='audio-controls' controls='controls' src={this.state.project.sound_clip_url} type="audio/mpeg">Your browser doesn't support the audio element</audio>
@@ -93,7 +93,7 @@ window.ProjectShow = React.createClass({
           </div>
         </div>
         <div className='row'>
-          <div className='col-sm-7'>
+          <div className='col-sm-7 project-show-image-container'>
             <img className='project-show-image' src={this.state.project.image_url} />
           </div>
           <div className='col-sm-4'>
@@ -105,8 +105,8 @@ window.ProjectShow = React.createClass({
           <div className='col-sm-4'>
             <h3>About this project</h3>
           </div>
-          <div className='col-sm-7 project-description'>
-            <h3 className='grey'>{this.state.project.description}</h3>
+          <div className='col-sm-7'>
+            <h3 className='grey project-description'>{this.state.project.description}</h3>
           </div>
         </div>
         <div className='row'>

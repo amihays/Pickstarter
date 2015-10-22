@@ -135,12 +135,22 @@ window.ProjectForm = React.createClass({
           </div>
 
           <div className='form-group'>
-            <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
-            <input type='text'
-                   id='project_funding_goal'
-                   className='form-control'
-                   value={this.state.funding_goal}
-                   onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
+            <div class="form-row">
+              <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
+                <div className="input-group">
+                  <span className="input-group-addon">$</span>
+                  <input type="number"
+                         value="1000"
+                         min="0"
+                         step="0.01"
+                         data-number-to-fixed="2"
+                         data-number-stepfactor="100"
+                         className="form-control currency"
+                         id="project_funding_goal"
+                         value={this.state.funding_goal}
+                         onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
+                </div>
+            </div>
           </div>
 
           <div className='form-group'>
@@ -168,7 +178,14 @@ window.ProjectForm = React.createClass({
 
           <button type="submit" className="btn btn-default">Create Project!</button>
         </form>
+        <button onClick={ this.history.goBack } className="btn btn-default red">Cancel</button>
       </div>
     )
   }
 })
+
+// <input type='text'
+//        id='project_funding_goal'
+//        className='form-control'
+//        value={this.state.funding_goal}
+//        onChange={this.handleInputChange.bind(null, 'funding_goal')}/>

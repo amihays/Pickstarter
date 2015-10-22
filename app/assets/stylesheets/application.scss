@@ -298,13 +298,20 @@ b {
   background-color: #f8f8f8;
   border-radius: 10px;
   margin: 0 auto;
+  overflow-wrap: break-word;
+}
+
+.project-show-image-container {
+  height: 373px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .project-show-image {
-  border-radius: 10px;
-  max-width: 100%;
-  max-height: 500px;
-  margin: 0 auto;
+  min-width: 100%;
+  min-height: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .project-show-container {
@@ -315,6 +322,8 @@ h6.project-text {
   font-weight: 400;
   font-size: 15px;
   color: #696969;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 h6.project-text.title {
@@ -325,10 +334,11 @@ h6.project-text.title {
 
 div.project-index-item {
   height: 550px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0px 5px 5px #BBBBBB;
 }
 
 div.project-index-item:hover {
@@ -341,10 +351,11 @@ div.project-image-container {
   background-position: center;
 }
 
-h3.grey {
+h3.project-description {
   color: #616161;
-  font-weight: lighter;
-  font-size: 20px;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 150%;
 }
 
 div.project-header {
@@ -395,10 +406,16 @@ h1.genre-header {
 img.genre-image {
   width: 100%;
   opacity: 0.95;
+  z-index: 1;
+}
+
+img.genre-image:hover {
+  opacity: .50;
 }
 
 div.genre-index-item:hover {
   cursor: pointer;
+  z-index: 2;
 }
 
 h1.genre-text {
@@ -433,19 +450,36 @@ button.btn.btn-default {
   background-color: #70a4a7;
   font-weight: 450;
   color: black;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   margin-bottom: 10px;
   border-width: 0px;
 }
 
+
 button.btn.btn-default:focus {
   outline: none;
-  background-color: #5A8386
+  background-color: #5A8386;
 }
 
-button.no-border:focus{
-  outline: none;
+button.btn.btn-default:hover {
+  background-color: #5A8386;
+}
+//
+// button.no-border:focus{
+//   outline: none;
+// }
+
+button.btn.btn-default.red {
+  background-color: #CA6C62;
+}
+
+button.btn.btn-default.red:hover {
+  background-color: #AB574E;
+}
+
+button.btn.btn-default.red:focus {
+  background-color: #AB574E;
 }
 
 html {
@@ -455,6 +489,7 @@ html {
 
 body {
   margin-bottom: 100px;
+  // font-family: 'Open Sans', sans-serif;
 }
 
 .footer {

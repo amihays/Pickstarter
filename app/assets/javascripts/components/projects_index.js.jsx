@@ -36,7 +36,7 @@ window.ProjectsIndex = React.createClass({
     return (
       <div className='projects-index'>
         <SortByJumbotron projects={this.state.projects}/>
-        <div className='container-fluid'>
+        <div className='container'>
           { projects }
         </div>
       </div>
