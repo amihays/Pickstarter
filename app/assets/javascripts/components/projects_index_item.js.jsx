@@ -15,6 +15,14 @@ window.ProjectsIndexItem = React.createClass({
     return result;
   },
 
+  shortenedTitle: function () {
+    if (this.props.project.title.length > 50) {
+      return this.props.project.title.slice(0,40) + "...";
+    } else {
+      return this.props.project.title;
+    }
+  },
+
   render: function () {
     var style = {};
     if (this.props.project.image_url) {
@@ -24,8 +32,8 @@ window.ProjectsIndexItem = React.createClass({
     }
     return (
       <div className="project-index-item" onClick={this.showProject}>
-        <div className="project-image-container" style={style}></div>
-        <h6 className="project-text title">{this.props.project.title}</h6>
+        <div className="project-image-container transitionfix" style={style}></div>
+        <h6 className="project-text title">{this.shortenedTitle()}</h6>
         <h6 className="project-text artist">{this.props.project.artist_name}</h6>
         <h6 className="project-text amount-raised">${this.amountRaised()} raised of ${this.props.project.funding_goal}</h6>
         <PercentFundedBar project={this.props.project} width="75%" height="10px" marginTop="10px"/>

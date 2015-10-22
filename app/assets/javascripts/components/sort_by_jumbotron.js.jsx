@@ -34,7 +34,7 @@ window.SortByJumbotron = React.createClass({
         <h1 className="homepage-header">Welcome to Pickstarter</h1>
         <form className="sort-by-form">
           <div className="float-container">
-            <label className="homepage-label" htmlFor='sort-by-select'>Sort by</label>
+            <label className="homepage-label">Sort by</label>
             <select id='sort-by-select'
                     onChange={this._handleSortByChange}>
               <option value='popularity'>Popularity</option>
@@ -45,7 +45,7 @@ window.SortByJumbotron = React.createClass({
             </select>
           </div>
           <div className="float-container">
-            <label className="homepage-label" htmlFor='cbox'>Include finished projects</label>
+            <label className="homepage-label">Include finished projects</label>
             { checkbox }
           </div>
         </form>

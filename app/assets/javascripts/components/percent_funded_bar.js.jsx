@@ -20,8 +20,14 @@ window.PercentFundedBar = React.createClass({
   },
 
   render: function () {
+    var color;
+    if (this.percentFunded() === 100) {
+      color = 'green';
+    } else {
+      color = 'red';
+    }
     var percentFundedBarStyle = {width: this.props.width, height: this.props.height}
-    var fillerStyle = {width: String(this.percentFunded()) + '%'};
+    var fillerStyle = {width: String(this.percentFunded()) + '%', backgroundColor: color};
     return (
       <div className='percent-funded-bar center' style={percentFundedBarStyle}>
         <div className='funding-fill' style={fillerStyle}></div>

@@ -135,7 +135,7 @@ window.ProjectForm = React.createClass({
           </div>
 
           <div className='form-group'>
-            <div class="form-row">
+            <div className="form-row">
               <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
                 <div className="input-group">
                   <span className="input-group-addon">$</span>
@@ -166,14 +166,14 @@ window.ProjectForm = React.createClass({
             <label htmlFor='project_image'>Add a Project Image</label>
             <a href="#"
                id='project_image'
-               onClick={this._uploadImage}> Upload File</a>
+               onClick={this._uploadImage}>Upload File</a>
           </div>
 
           <div className='form-group'>
             <label htmlFor='project_sound_clip'>Add a Music Clip</label>
             <a href="#"
                id='project_sound_clip'
-               onClick={this._uploadSoundClip}> Upload Music Clip</a>
+               onClick={this._uploadSoundClip}>Upload Music Clip</a>
           </div>
 
           <button type="submit" className="btn btn-default">Create Project!</button>

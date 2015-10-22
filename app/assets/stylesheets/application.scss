@@ -187,7 +187,7 @@ h1.genres-index-header {
 
 .funding-fill {
   height: 100%;
-  background-color: red;
+  // background-color: red;
 }
 
 .center {
@@ -303,8 +303,9 @@ b {
 
 .project-show-image-container {
   height: 373px;
-  border-radius: 10px;
   overflow: hidden;
+  border-radius: 10px;
+  padding: 0;
 }
 
 .project-show-image {
@@ -337,6 +338,8 @@ div.project-index-item {
   margin-bottom: 30px;
   background-color: white;
   border-radius: 10px;
+  z-index: 1;
+  // border: 6px solid transparent;
   overflow: hidden;
   box-shadow: 0px 5px 5px #BBBBBB;
 }
@@ -345,10 +348,31 @@ div.project-index-item:hover {
   cursor: pointer;
 }
 
+div.project-index-item:hover div.project-image-container {
+  opacity: .70;
+  -webkit-transition: opacity .1s linear;
+     -moz-transition: opacity .1s linear;
+       -o-transition: opacity .1s linear;
+          transition: opacity .1s linear;
+}
+
+// .transitionfix {
+    // -webkit-backface-visibility: hidden;
+    // -moz-backface-visibility: hidden;
+    // -webkit-transform: translate3d(0, 0, 0);
+    // -moz-transform: translate3d(0, 0, 0)
+// }
+
 div.project-image-container {
   height: 73%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   background-size: cover;
   background-position: center;
+  -webkit-transition: opacity 1s linear;
+     -moz-transition: opacity 1s linear;
+       -o-transition: opacity 1s linear;
+          transition: opacity 1s linear;
 }
 
 h3.project-description {
@@ -391,31 +415,61 @@ button.logo {
 }
 
 button.navbar-links {
+  font-weight: 500;
   border-width: 0px;
   background-color: inherit;
 }
 
+a.dropdown-toggle {
+  font-weight: 500;
+  margin-top: 2px;
+}
+
 div.genre-index-item {
   position: relative;
+  -webkit-transition: box-shadow 1s linear;
+     -moz-transition: box-shadow 1s linear;
+       -o-transition: box-shadow 1s linear;
+          transition: box-shadow 1s linear;
 }
 
-h1.genre-header {
-  text-align: center;
-}
-
-img.genre-image {
-  width: 100%;
-  opacity: 0.95;
-  z-index: 1;
-}
-
-img.genre-image:hover {
-  opacity: .50;
+.genre-index-item{
+	width: 100%;		/* for zoom transition */
+  height: 0;    /* for zoom transition */
+  padding-bottom: 100%;   /* for zoom transition */
+  overflow: hidden;   /* for zoom transition */
 }
 
 div.genre-index-item:hover {
   cursor: pointer;
   z-index: 2;
+  // box-shadow: 0px 0px 25px #222222;
+  -webkit-transition: box-shadow 0.1s linear;
+     -moz-transition: box-shadow 0.1s linear;
+       -o-transition: box-shadow 0.1s linear;
+          transition: box-shadow 0.1s linear;
+}
+
+div.genre-index-item:hover img.genre-image {
+  width: 105%;    /* for zoom transition */
+  -webkit-transition: width 0.3s linear;    /* for zoom transition */
+     -moz-transition: width 0.3s linear;    /* for zoom transition */
+       -o-transition: width 0.3s linear;    /* for zoom transition */
+          transition: width 0.3s linear;    /* for zoom transition */
+}
+
+img.genre-image {
+  position: absolute;
+  left: 50%;    /* for zoom transition */
+  top: 50%;    /* for zoom transition */
+  transform: translate(-50%, -50%);    /* for zoom transition */
+  width: 100%;
+  opacity: 0.95;
+  z-index: 1;
+  -webkit-transition: width 0.5s linear;    /* for zoom transition */
+     -moz-transition: width 0.5s linear;    /* for zoom transition */
+       -o-transition: width 0.5s linear;    /* for zoom transition */
+          transition: width 0.5s linear;    /* for zoom transition */
 }
 
 h1.genre-text {
@@ -441,8 +495,20 @@ h1.genre-text {
     // 1px 1px 0 #BBB;
 }
 
+a.dropdown-toggle:active {
+  background-color: inherit;
+}
+
+h1.genre-header {
+  text-align: center;
+}
+
 .container.project-form-container {
   width: 400px;
+}
+
+#project_sound_clip, #project_image {
+  margin-left: 10px;
 }
 
 button.btn.btn-default {
@@ -465,10 +531,10 @@ button.btn.btn-default:focus {
 button.btn.btn-default:hover {
   background-color: #5A8386;
 }
-//
-// button.no-border:focus{
-//   outline: none;
-// }
+
+button.no-border:focus{
+  outline: none;
+}
 
 button.btn.btn-default.red {
   background-color: #CA6C62;
