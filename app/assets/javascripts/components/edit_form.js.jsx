@@ -23,7 +23,8 @@ window.EditForm = React.createClass({
       deadline: project.deadline,
       artist_name: project.artist_name,
       funding_goal: project.funding_goal,
-      genres: GenreStore.all()
+      genres: GenreStore.all(),
+      modalIsOpen: false
     };
   },
 
@@ -92,12 +93,33 @@ window.EditForm = React.createClass({
     }.bind(this));
   },
 
+  openConfirm: function () {
+    this.setState({modalIsOpen: true});
+  },
+
+  closeConfirm: function () {
+    this.setState({modalIsOpen: false})
+  },
+
+  delete: function () {
+    ApiUtil.deleteProject(this.props.params.id);
+  },
+
   render: function () {
+    var modal = '';
+    if (this.state.modalIsOpen) {
+      modal = (
+        <ConfirmModal close={this.closeConfirm} delete={this.delete}/>
+      );
+    }
+
     return(
       <div className='container project-form-container margins-50-px'>
+        { modal }
         <div className="row">
           <Error/>
         </div>
+        <button onClick={ this.openConfirm } className="btn btn-default red">Delete</button>
         <form className='create-project' onSubmit={this.submitForm}>
           <div className='form-group'>
             <label htmlFor='project_title'>Project Title</label>

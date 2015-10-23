@@ -85,6 +85,19 @@ window.ApiUtil = {
         window.location = "#/projects/" + project.id;
       },
       error: function (errors) {
+        console.log("failed deleteProject request")
+      }
+    })
+  },
+
+  deleteProject: function (id) {
+    $.ajax({
+      url: 'api/projects/' + id,
+      type: 'delete',
+      success: function () {
+        window.location = "#/";
+      },
+      error: function (errors) {
         var errorMessages = errors.responseJSON;
         ApiActions.receiveErrors(errorMessages);
       }
