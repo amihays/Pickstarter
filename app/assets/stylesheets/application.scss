@@ -306,17 +306,59 @@ b {
   overflow: hidden;
   border-radius: 10px;
   padding: 0;
+  background-size: cover;
+  background-position: 50%, 0%;
 }
 
-.project-show-image {
-  min-width: 100%;
-  min-height: 100%;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
+// .project-show-image {
+//   width: 100%;
+//   // border-radius: 10px;
+//   // min-height: 100%;
+//   // margin-left: 50%;
+//   // transform: translateX(-50%);
+// }
 
 .project-show-container {
   width: 70%;
+}
+
+.scrollable-row {
+  height: 200px;
+  background-color: #70a4a7;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.small-project-index-item {
+  height: 180px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.small-project-index-item:hover {
+  cursor: pointer;
+}
+
+.small-project-image-container {
+  border: 3px solid white;
+  // margin-left: 50%;
+  // margin-top: 50%;
+  // transform: translate(-50%, -50%);
+  height: 100%;
+  width: 50%;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  // -webkit-transition: opacity 1s linear;
+  //    -moz-transition: opacity 1s linear;
+  //      -o-transition: opacity 1s linear;
+  //         transition: opacity 1s linear;
 }
 
 h6.project-text {
@@ -336,13 +378,46 @@ h6.project-text.title {
 div.project-index-item {
   height: 550px;
   margin-bottom: 30px;
+  padding-bottom: 20px;
   background-color: white;
   border-radius: 10px;
   z-index: 1;
+  position: relative;
   // border: 6px solid transparent;
   overflow: hidden;
   box-shadow: 0px 5px 5px #BBBBBB;
 }
+
+div.projects-index-item-bar .percent-funded-bar.center {
+  position: absolute;
+  bottom: 10px;
+}
+
+.projects-index-title-container {
+  position: absolute;
+  height: 80px;
+  bottom: 80px;
+  overflow: hidden;
+}
+
+// .projects-index-artist-container {
+//   position: absolute;
+//   height: 30px;
+//   bottom: 70px;
+//   overflow: hidden;
+// }
+
+.projects-index-amount-container {
+  margin: auto;
+  position: absolute;
+  bottom: 38px;
+}
+//
+// h6.project-text.amount-raised {
+//   margin-left: 15%;
+//   position: absolute;
+//   bottom: 28px;
+// }
 
 div.project-index-item:hover {
   cursor: pointer;
@@ -452,10 +527,10 @@ div.genre-index-item:hover {
 
 div.genre-index-item:hover img.genre-image {
   width: 105%;    /* for zoom transition */
-  -webkit-transition: width 0.3s linear;    /* for zoom transition */
-     -moz-transition: width 0.3s linear;    /* for zoom transition */
-       -o-transition: width 0.3s linear;    /* for zoom transition */
-          transition: width 0.3s linear;    /* for zoom transition */
+  -webkit-transition: width 0.3s ease;    /* for zoom transition */
+     -moz-transition: width 0.3s ease;    /* for zoom transition */
+       -o-transition: width 0.3s ease;    /* for zoom transition */
+          transition: width 0.3s ease;    /* for zoom transition */
 }
 
 img.genre-image {
@@ -466,17 +541,15 @@ img.genre-image {
   width: 100%;
   opacity: 0.95;
   z-index: 1;
-  -webkit-transition: width 0.5s linear;    /* for zoom transition */
-     -moz-transition: width 0.5s linear;    /* for zoom transition */
-       -o-transition: width 0.5s linear;    /* for zoom transition */
-          transition: width 0.5s linear;    /* for zoom transition */
+  -webkit-transition: width 0.5s ease;    /* for zoom transition */
+     -moz-transition: width 0.5s ease;    /* for zoom transition */
+       -o-transition: width 0.5s ease;    /* for zoom transition */
+          transition: width 0.5s ease;    /* for zoom transition */
 }
 
 h1.genre-text {
   display: block;
   font-size: 40px;
-  // margin-left: auto;
-  // margin-right: auto;
   text-align: center;
   z-index: 2;
   position: absolute;
@@ -568,4 +641,12 @@ body {
 
 .footer-container {
   width: 150px;
+}
+
+.page-loading-gif {
+  position: absolute;
+  width: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

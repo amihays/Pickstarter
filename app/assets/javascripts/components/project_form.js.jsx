@@ -2,27 +2,26 @@ window.ProjectForm = React.createClass({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
-    if (this.props.project) {
-      return {
-        title: this.props.project.title || '',
-        description: this.props.project.description || '',
-        genre_id: this.props.project.genre_id || '',
-        deadline: this.props.project.deadline || '',
-        artist_name: this.props.project.artist_name || '',
-        funding_goal: this.props.project.funding_goal || '',
-        genres: GenreStore.all()
-      };
-    } else {
-      return {
-        title: '',
-        description: '',
-        genre_id: '',
-        deadline: '',
-        artist_name: '',
-        funding_goal: '',
-        genres: GenreStore.all()
-      };
-    }
+    // if (this.props.params.project) {
+    //   return {
+    //     title: this.props.project.title || '',
+    //     description: this.props.project.description || '',
+    //     genre_id: this.props.project.genre_id || '',
+    //     deadline: this.props.project.deadline || '',
+    //     artist_name: this.props.project.artist_name || '',
+    //     funding_goal: this.props.project.funding_goal || '',
+    //     genres: GenreStore.all()
+    //   };
+    // }
+    return {
+      title: '',
+      description: '',
+      genre_id: '',
+      deadline: '',
+      artist_name: '',
+      funding_goal: '',
+      genres: GenreStore.all()
+    };
   },
 
   componentDidMount: function () {
@@ -37,7 +36,6 @@ window.ProjectForm = React.createClass({
   submitForm: function (e) {
     e.preventDefault();
     var params = {};
-
     Object.keys(this.state).forEach(function(key) {
       if (key !== 'genres') {
         params[key] = this.state[key];

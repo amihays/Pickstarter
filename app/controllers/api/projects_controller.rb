@@ -7,6 +7,9 @@ class Api::ProjectsController < ApplicationController
     if project_info[:deadline] != ''
       project_info[:deadline] = Date.parse(project_info[:deadline])
     end
+    if !project_info[:image_url]
+      project_info[:image_url] = "http://res.cloudinary.com/daqcetxc6/image/upload/c_crop,h_731,w_775,x_0,y_0/v1445534918/genres/microphone.jpg"
+    end
     project_info[:user_id] = current_user.id
     @project = Project.new(project_info)
 

@@ -33,10 +33,16 @@ window.ProjectsIndexItem = React.createClass({
     return (
       <div className="project-index-item" onClick={this.showProject}>
         <div className="project-image-container transitionfix" style={style}></div>
-        <h6 className="project-text title">{this.shortenedTitle()}</h6>
-        <h6 className="project-text artist">{this.props.project.artist_name}</h6>
-        <h6 className="project-text amount-raised">${this.amountRaised()} raised of ${this.props.project.funding_goal}</h6>
-        <PercentFundedBar project={this.props.project} width="75%" height="10px" marginTop="10px"/>
+        <div className="projects-index-title-container">
+          <h6 className="project-text title">{this.shortenedTitle()}</h6>
+          <h6 className="project-text artist">{this.props.project.artist_name}</h6>
+        </div>
+        <div className="projects-index-amount-container">
+          <h6 className="project-text amount-raised">${this.amountRaised()} raised of ${this.props.project.funding_goal}</h6>
+        </div>
+        <div className="projects-index-item-bar">
+          <PercentFundedBar project={this.props.project} width="75%" height="10px" marginTop="10px"/>
+        </div>
       </div>
     );
   }

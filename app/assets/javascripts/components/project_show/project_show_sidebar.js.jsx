@@ -35,21 +35,33 @@ window.ProjectShowSidebar = React.createClass({
     var today = new Date();
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
 
-    var diffDays = Math.round((deadline.getTime() - today.getTime())/(oneDay));
-    if (diffDays > 0) {
-      return diffDays;
-    } else {
-      return 0;
-    }
+    var diffDays = (deadline.getTime() - today.getTime())/(oneDay);
+    return diffDays;
+  },
+
+  hoursLeft: function () {
+    var deadline = new Date(this.props.project.deadline);
+    var today = new Date();
+    var oneHour = 60*60*1000; // hours*minutes*seconds*milliseconds
+
+    var diffHours = (deadline.getTime() - today.getTime())/(oneHour);
+    return diffHours;
   },
 
   render: function () {
     var daysLeft;
-    if (this.daysLeft() > 0) {
+    if (this.daysLeft() >= 1) {
       daysLeft = (
         <div className='days-left'>
-          <h1 className='text-center top-padding no-margin'>{this.daysLeft()}</h1>
+          <h1 className='text-center top-padding no-margin'>{Math.floor(this.daysLeft())}</h1>
           <h4 className='text-center no-margin'>days left</h4>
+        </div>
+      )
+    } else if (this.daysLeft() > 0) {
+      daysLeft = (
+        <div className='days-left'>
+          <h1 className='text-center top-padding no-margin'>{Math.floor(this.hoursLeft())}</h1>
+          <h4 className='text-center no-margin'>hours left!</h4>
         </div>
       )
     } else {
@@ -59,7 +71,7 @@ window.ProjectShowSidebar = React.createClass({
     };
 
     var contributeButton = '';
-    if (this.daysLeft() > 0) {
+    if (this.daysLeft() >= 0) {
       contributeButton = (
         <button className='btn btn-default contribute'
                 onClick={this.props.openContribute}>Contribute!</button>

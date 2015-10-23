@@ -10,6 +10,7 @@ window.SortByJumbotron = React.createClass({
   _handleSortByChange: function (e) {
     this.setState({order: e.target.value},
       this._fetchOrderedProjects);
+    window.scrollTo(0, 510);
   },
 
   _fetchOrderedProjects: function() {

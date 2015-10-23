@@ -12,11 +12,13 @@ window.ProjectShow = React.createClass({
     this.setState(this.getStateFromStore());
   },
 
-  deadlinePassed: function () { //this is totally backward - why?!!
-    return !(new Date(this.state.project.deadline) > new Date());
+  deadlinePassed: function () {
+    debugger;
+    return (new Date(this.state.project.deadline) < new Date());
   },
 
   componentDidMount: function () {
+    window.scrollTo(0,0);
     ProjectStore.addChangeListener(this._onProjectsChange);
     ApiUtil.fetchProject(parseInt(this.props.params.id));
   },
@@ -26,7 +28,7 @@ window.ProjectShow = React.createClass({
   },
 
   handleEditButtonClick: function () {
-    // this.props.history.pushState({project: this.state.project}, '/projects/' + this.state.project.id + '/edit', {});
+    // this.props.history.pushState(null, '/projects/' + this.state.project.id + '/edit', {});
   }, // How to pass in project info?
 
   openContribute: function () {
@@ -36,6 +38,18 @@ window.ProjectShow = React.createClass({
   closeContribute: function () {
     this.setState({modalIsOpen: false});
   },
+  //
+  // render: function () {
+  //   if (!this.state.project.contributors) {
+  //     return this.renderLoading();
+  //   } else {
+  //     return this.renderContent();
+  //   }
+  // },
+  //
+  // renderLoading: function () {
+  //   return <Loading/>
+  // },
 
   render: function () {
     var style = {};
@@ -45,13 +59,13 @@ window.ProjectShow = React.createClass({
       };
     }
 
-    var editButton = ''; // change so only shows before project deadline
+    // var editButton = ''; // change so only shows before project deadline
     // if (window.CURRENT_USER.id === parseInt(this.state.project.user_id) &&
     //     !this.deadlinePassed()) {
-    //   // editButton = (
-    //   //   <button onClick={this.handleEditButtonClick}>Edit Project</button>
-    //   // )
-    //   editButton = ( <button className='btn btn-default'>Edit Project</button> );
+    //   editButton = (
+    //     <button onClick={this.handleEditButtonClick}>Edit Project</button>
+    //   )
+    //   // editButton = ( <button className='btn btn-default'>Edit Project</button> );
     // }
 
     var modal = '';
@@ -75,6 +89,11 @@ window.ProjectShow = React.createClass({
       )
     }
 
+    var projectImageStyle = {};
+    if (this.state.project.image_url) {
+      projectImageStyle = { backgroundImage: 'url(' + this.state.project.image_url + ')' };
+    }
+
     return(
       <div className='container project-show-container'>
         { modal }
@@ -93,9 +112,7 @@ window.ProjectShow = React.createClass({
           </div>
         </div>
         <div className='row'>
-          <div className='col-sm-7 project-show-image-container'>
-            <img className='project-show-image' src={this.state.project.image_url} />
-          </div>
+          <div className='col-sm-7 project-show-image-container' style={projectImageStyle}></div>
           <div className='col-sm-4'>
             <ProjectShowSidebar project={this.state.project} openContribute={this.openContribute}/>
           </div>
@@ -109,15 +126,17 @@ window.ProjectShow = React.createClass({
             <h3 className='grey project-description'>{this.state.project.description}</h3>
           </div>
         </div>
-        <div className='row'>
-          <div className='col-sm-4'>
-            {editButton}
-          </div>
-        </div>
       </div>
     )
   }
 });
+
+        // <div className='row'>
+        //   <div className='col-sm-4'>
+        //     {editButton}
+        //   </div>
+        // </div>
+            // <img className='project-show-image' src={this.state.project.image_url} />
 
 // <div className='row'>
 //   <div className='col-sm-4'>
