@@ -31,6 +31,11 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
+    project_info = project_params
+    if project_info[:deadline] != ''
+      project_info[:deadline] = Date.parse(project_info[:deadline])
+    end
+    
     @project = Project.find(params[:id])
     if @project.update(project_params)
       render :show

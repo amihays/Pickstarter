@@ -49,6 +49,20 @@ window.ProjectShowSidebar = React.createClass({
   },
 
   render: function () {
+
+    var button = ''; // change so only shows before project deadline
+    if (window.CURRENT_USER.id === parseInt(this.props.project.user_id) &&
+        this.daysLeft() >= 0) {
+      button = (
+        <button className='btn btn-default edit-button' onClick={this.props.handleEditButtonClick}>Edit Project</button>
+      )
+    } else if (this.daysLeft() >= 0) {
+      button = (
+        <button className='btn btn-default contribute'
+                onClick={this.props.openContribute}>Contribute!</button>
+        )
+    }
+
     var daysLeft;
     if (this.daysLeft() >= 1) {
       daysLeft = (
@@ -70,14 +84,6 @@ window.ProjectShowSidebar = React.createClass({
       )
     };
 
-    var contributeButton = '';
-    if (this.daysLeft() >= 0) {
-      contributeButton = (
-        <button className='btn btn-default contribute'
-                onClick={this.props.openContribute}>Contribute!</button>
-      )
-    }
-
     var backers;
     if (this.contributorsCount() === '1') {
       backers = 'backer'
@@ -93,7 +99,7 @@ window.ProjectShowSidebar = React.createClass({
         <h1 className='text-center top-padding no-margin'>${this.amountRaised()}</h1>
         <h4 className='text-center margin-bottom-25px'>raised of ${this.props.project.funding_goal} goal</h4>
         <PercentFundedBar project={this.props.project} width="150px" height="20px" marginTop="25px"/>
-        { contributeButton }
+        { button }
       </div>
 
     )

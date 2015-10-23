@@ -13,6 +13,7 @@ window.Routes = function () {
         <Route path="projects/new" component={ProjectForm}/>
         <Route path="projects/:id" component={ProjectShow}/>
         <Route path="/user" component={UserProfile}/>
+        <Route path='/projects/:id/edit' component={EditForm}/>
       </Route>
     </Router>
   ), root)

@@ -69,8 +69,8 @@ h2.checkbox {
 .checkbox-container {
   background: rgba(255, 255, 255, 0.7);
   float: right;
-  width: 18px;
-  height: 18px;
+  width: 200px;
+  height: 34px;
   border-radius: 5px;
 }
 
@@ -82,15 +82,15 @@ h2.checkbox {
 #sort-by-select {
   float: right;
   width: 125px;
-  height: 50px;
+  height: 34px;
   background: rgba(255, 255, 255, 0.7);
   padding: 5px;
   font-size: 16px;
   line-height: 1;
   border: 0;
   border-radius: 5px;
-  height: 34px;
   -webkit-appearance: none;
+  text-align: center;
 }
 
 #sort-by-select:hover {
@@ -307,7 +307,7 @@ b {
   border-radius: 10px;
   padding: 0;
   background-size: cover;
-  background-position: 50%, 0%;
+  background-position: center top;
 }
 
 // .project-show-image {
@@ -339,6 +339,20 @@ b {
   overflow: hidden;
   display: inline-block;
   margin-right: 10px;
+  border: 3px solid white;
+  padding-right: 10px;
+  position: relative;
+}
+//
+// .small-projects-index-amount-container {
+//   position: absolute;
+//   bottom: 15px;
+// }
+
+.small-projects-index-item-bar {
+  position: absolute;
+  bottom: 2px;
+  right: 24px;
 }
 
 .small-project-index-item:hover {
@@ -346,12 +360,13 @@ b {
 }
 
 .small-project-image-container {
-  border: 3px solid white;
+  margin-right: 10px;
   // margin-left: 50%;
   // margin-top: 50%;
   // transform: translate(-50%, -50%);
   height: 100%;
   width: 50%;
+  float: left;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
@@ -360,6 +375,18 @@ b {
   //      -o-transition: opacity 1s linear;
   //         transition: opacity 1s linear;
 }
+//
+.small-project-text {
+  white-space: pre-wrap;
+}
+
+.small-project-text.title {
+  font-weight: 700;
+}
+
+// .small-project-text {
+//   float: left;
+// }
 
 h6.project-text {
   font-weight: 400;
@@ -604,6 +631,10 @@ button.btn.btn-default:focus {
 button.btn.btn-default:hover {
   background-color: #5A8386;
 }
+// 
+// button.edit-button.btn.btn-default {
+//   width: 200px;
+// }
 
 button.no-border:focus{
   outline: none;

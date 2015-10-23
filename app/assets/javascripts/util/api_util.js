@@ -76,6 +76,21 @@ window.ApiUtil = {
     })
   },
 
+  updateProject: function (params, id) {
+    $.ajax({
+      url: 'api/projects/' + id,
+      type: 'patch',
+      data: {project: params},
+      success: function (project) {
+        window.location = "#/projects/" + project.id;
+      },
+      error: function (errors) {
+        var errorMessages = errors.responseJSON;
+        ApiActions.receiveErrors(errorMessages);
+      }
+    })
+  },
+
   createContribution: function (params, callback) {
     $.ajax({
       url: 'api/contributions',

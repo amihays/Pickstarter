@@ -13,7 +13,6 @@ window.ProjectShow = React.createClass({
   },
 
   deadlinePassed: function () {
-    debugger;
     return (new Date(this.state.project.deadline) < new Date());
   },
 
@@ -28,8 +27,8 @@ window.ProjectShow = React.createClass({
   },
 
   handleEditButtonClick: function () {
-    // this.props.history.pushState(null, '/projects/' + this.state.project.id + '/edit', {});
-  }, // How to pass in project info?
+    this.props.history.pushState(null, '/projects/' + this.state.project.id + '/edit', {});
+  },
 
   openContribute: function () {
     this.setState({modalIsOpen: true});
@@ -58,15 +57,6 @@ window.ProjectShow = React.createClass({
         backgroundImage: 'url(' + this.state.project.image_url + ')'
       };
     }
-
-    // var editButton = ''; // change so only shows before project deadline
-    // if (window.CURRENT_USER.id === parseInt(this.state.project.user_id) &&
-    //     !this.deadlinePassed()) {
-    //   editButton = (
-    //     <button onClick={this.handleEditButtonClick}>Edit Project</button>
-    //   )
-    //   // editButton = ( <button className='btn btn-default'>Edit Project</button> );
-    // }
 
     var modal = '';
     if (this.state.modalIsOpen) {
@@ -114,7 +104,7 @@ window.ProjectShow = React.createClass({
         <div className='row'>
           <div className='col-sm-7 project-show-image-container' style={projectImageStyle}></div>
           <div className='col-sm-4'>
-            <ProjectShowSidebar project={this.state.project} openContribute={this.openContribute}/>
+            <ProjectShowSidebar project={this.state.project} handleEditButtonClick={this.handleEditButtonClick} openContribute={this.openContribute}/>
           </div>
         </div>
         { musicClip }
