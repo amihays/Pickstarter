@@ -57,8 +57,8 @@ window.ProjectForm = React.createClass({
   _uploadImage: function (e) {
     e.preventDefault();
     cloudinary.openUploadWidget({
-      cloud_name: 'daqcetxc6',
-      upload_preset: 'pscd81e7',
+      cloud_name: window.CLOUD_NAME,
+      upload_preset: window.IMAGE_UPLOAD_PRESET,
     }, function(error, result) {
       if (error) {
         console.log(error)
@@ -71,8 +71,8 @@ window.ProjectForm = React.createClass({
   _uploadSoundClip: function (e) {
     e.preventDefault();
     cloudinary.openUploadWidget({
-      cloud_name: 'daqcetxc6',
-      upload_preset: 'ohbj4mzd',
+      cloud_name: window.CLOUD_NAME,
+      upload_preset: window.MUSIC_UPLOAD_PRESET,
     }, function(error, result) {
       if (error) {
         console.log(error)
@@ -164,7 +164,7 @@ window.ProjectForm = React.createClass({
             <label htmlFor='project_image'>Add a Project Image</label>
             <a href="#"
                id='project_image'
-               onClick={this._uploadImage}>Upload File</a>
+               onClick={this._uploadImage}>Upload Image</a>
           </div>
 
           <div className='form-group'>

@@ -11,6 +11,12 @@
 </head>
 <body>
 
+<script type="text/javascript" charset="utf-8">
+  window.CLOUD_NAME = "<%= ENV['CLOUD_NAME']  %>"
+  window.IMAGE_UPLOAD_PRESET = "<%= ENV['IMAGE_UPLOAD_PRESET'] %>"
+  window.MUSIC_UPLOAD_PRESET = "<%= ENV['MUSIC_UPLOAD_PRESET'] %>"
+</script>
+
 <% if current_user %>
   <script>
     window.CURRENT_USER = JSON.parse('<%= current_user.to_json(only: [:username, :id]).html_safe %>');
