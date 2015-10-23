@@ -51,6 +51,18 @@ window.EditForm = React.createClass({
     ApiUtil.updateProject(params, this.props.params.id);
   },
 
+  genre: function () {
+    if (this.state.genres && this.state) {
+      this.state.genres.forEach(function(genre) {
+        if (genre.id === this.state.genre_id) {
+          return genre.title;
+        }
+      }.bind(this))
+    } else {
+      return '';
+    }
+  },
+
   _onGenresChange: function () {
     this.setState({genres: GenreStore.all()});
   },
@@ -145,10 +157,11 @@ window.EditForm = React.createClass({
             <label htmlFor='project_genre'>Genre</label>
             <select id='project_genre'
                     className='form-control'
+                    value={this.genre()}
                     onChange={this.handleInputChange.bind(null, 'genre_id')}>
               {
                 this.state.genres.map(function (genre) {
-                  return <option key={genre.id} value={genre.id} selected={genre.id === this.state.genre_id ? true : false}>{genre.name}</option>
+                  return <option key={genre.id} value={genre.id}>{genre.name}</option>
                 }.bind(this))
               }
             </select>
