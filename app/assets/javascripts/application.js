@@ -19,4 +19,5 @@
 //= require reactrouter.min.js
 //= require bootstrap-sprockets
 //= require pickstarter
+//= require jquery.easing
 //= require_tree .

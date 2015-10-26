@@ -1,18 +1,9 @@
 window.ProjectForm = React.createClass({
   mixins: [ReactRouter.History],
 
+  NOT_BLANK: ['title', 'description', 'genre_id', 'deadline', 'artist_name', 'funding_goal'],
+
   getInitialState: function () {
-    // if (this.props.params.project) {
-    //   return {
-    //     title: this.props.project.title || '',
-    //     description: this.props.project.description || '',
-    //     genre_id: this.props.project.genre_id || '',
-    //     deadline: this.props.project.deadline || '',
-    //     artist_name: this.props.project.artist_name || '',
-    //     funding_goal: this.props.project.funding_goal || '',
-    //     genres: GenreStore.all()
-    //   };
-    // }
     return {
       title: '',
       description: '',
@@ -20,7 +11,8 @@ window.ProjectForm = React.createClass({
       deadline: '',
       artist_name: '',
       funding_goal: '',
-      genres: GenreStore.all()
+      genres: GenreStore.all(),
+      errors: {}
     };
   },
 
@@ -37,11 +29,11 @@ window.ProjectForm = React.createClass({
     e.preventDefault();
     var params = {};
     Object.keys(this.state).forEach(function(key) {
-      if (key !== 'genres') {
+      if (this.NOT_BLANK.indexOf(key) >= 0 && key !== 'genres') {
         params[key] = this.state[key];
       }
     }.bind(this))
-    ApiUtil.createProject(params);
+    ApiUtil.createProject(params, this._errorAllBlankFields);
   },
 
   _onGenresChange: function () {
@@ -50,7 +42,13 @@ window.ProjectForm = React.createClass({
 
   handleInputChange: function (param, e) {
     var newState = {};
+    newState['errors'] = this.state.errors || {};
     newState[param] = e.target.value;
+    if (e.target.value === '' && this.NOT_BLANK.indexOf(param) >= 0) {
+      newState.errors[param] = true;
+    } else if (this.NOT_BLANK.indexOf(param) >= 0) {
+      newState.errors[param] = false;
+    }
     this.setState(newState);
   },
 
@@ -82,6 +80,16 @@ window.ProjectForm = React.createClass({
     }.bind(this));
   },
 
+  _errorAllBlankFields: function () {
+    errors = {};
+    this.NOT_BLANK.forEach(function(key) {
+      if (this.state[key] === '') {
+        errors[key] = true;
+      }
+    }.bind(this))
+    this.setState({errors: errors})
+  },
+
   render: function () {
     return(
       <div className='container project-form-container margins-50-px'>
@@ -92,7 +100,7 @@ window.ProjectForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_title'>Project Title</label>
             <input type='text'
-                   className='form-control'
+                   className={this.state.errors.title ? 'form-control red-outline' : 'form-control' }
                    id='project_title'
                    value={this.state.title}
                    placeholder="Give a name for your project..."
@@ -102,7 +110,7 @@ window.ProjectForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_artist'>Artist</label>
             <input type='text'
-                   className='form-control'
+                   className={this.state.errors.artist_name ? 'form-control red-outline' : 'form-control' }
                    id='project_artist'
                    placeholder="Artist name..."
                    value={this.state.artist_name}
@@ -112,9 +120,9 @@ window.ProjectForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_genre'>Genre</label>
             <select id='project_genre'
-                    className='form-control'
+                    className={this.state.errors.genre_id ? 'form-control red-outline' : 'form-control' }
                     onChange={this.handleInputChange.bind(null, 'genre_id')}>
-              <option></option>
+              <option value=''></option>
               {
                 this.state.genres.map(function (genre) {
                   return <option key={genre.id} value={genre.id}>{genre.name}</option>
@@ -126,7 +134,7 @@ window.ProjectForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_description'>Description</label>
             <textarea id='project_description'
-                      className='form-control'
+                      className={this.state.errors.description ? 'form-control red-outline' : 'form-control' }
                       placeholder="What will you do with the funds?"
                       value={this.state.description}
                       onChange={this.handleInputChange.bind(null, 'description')}/>
@@ -136,14 +144,14 @@ window.ProjectForm = React.createClass({
             <div className="form-row">
               <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
                 <div className="input-group">
-                  <span className="input-group-addon">$</span>
+                  <span className={this.state.errors.funding_goal ? 'input-group-addon red-left' : 'input-group-addon'}>$</span>
                   <input type="number"
                          value="1000"
                          min="0"
                          step="0.01"
                          data-number-to-fixed="2"
                          data-number-stepfactor="100"
-                         className="form-control currency"
+                         className={this.state.errors.funding_goal ? 'form-control currency red-right' : 'form-control currency' }
                          id="project_funding_goal"
                          value={this.state.funding_goal}
                          onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
@@ -155,7 +163,7 @@ window.ProjectForm = React.createClass({
             <label htmlFor='project_deadline'>Fundraising Deadline</label>
             <input type='date'
                    id='project_deadline'
-                   className='form-control'
+                   className={this.state.errors.deadline ? 'form-control red-outline' : 'form-control' }
                    value={this.state.deadline}
                    onChange={this.handleInputChange.bind(null, 'deadline')}/>
           </div>

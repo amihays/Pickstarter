@@ -1,6 +1,7 @@
 window.PercentFundedBar = React.createClass({
   percentFunded: function () {
-    var goal = parseInt(this.props.project.funding_goal)
+    // debugger;
+    var goal = parseFloat(this.props.project.funding_goal)
     var percent = this.amountRaised()/goal * 100;
     if (percent > 100) {
       return 100;

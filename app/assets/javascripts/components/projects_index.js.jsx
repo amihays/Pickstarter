@@ -16,6 +16,12 @@ window.ProjectsIndex = React.createClass({
     ProjectStore.removeChangeListener(this._onProjectsChange);
   },
 
+  scroll: function () {
+    $('html, body').animate({
+      scrollTop: $("div.container").offset().top
+    }, 1500, 'easeInOutExpo');
+  },
+
   render: function () {
     var projects = '';
     if (this.state.projects) {
@@ -35,7 +41,7 @@ window.ProjectsIndex = React.createClass({
     }
     return (
       <div className='projects-index'>
-        <SortByJumbotron projects={this.state.projects}/>
+        <SortByJumbotron scroll={this.scroll} projects={this.state.projects}/>
         <div className='container'>
           { projects }
         </div>

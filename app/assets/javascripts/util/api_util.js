@@ -61,7 +61,7 @@ window.ApiUtil = {
     })
   },
 
-  createProject: function (params) {
+  createProject: function (params, errorCallback) {
     $.ajax({
       url: 'api/projects',
       type: 'post',
@@ -70,6 +70,7 @@ window.ApiUtil = {
         window.location = "#/projects/" + project.id;
       },
       error: function (errors) {
+        errorCallback();
         var errorMessages = errors.responseJSON;
         ApiActions.receiveErrors(errorMessages);
       }
