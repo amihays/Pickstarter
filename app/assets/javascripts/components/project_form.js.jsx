@@ -29,7 +29,8 @@ window.ProjectForm = React.createClass({
     e.preventDefault();
     var params = {};
     Object.keys(this.state).forEach(function(key) {
-      if (this.NOT_BLANK.indexOf(key) >= 0 && key !== 'genres') {
+      if ((this.NOT_BLANK.indexOf(key) >= 0 || key === 'image_url' ||
+         key === 'sound_clip_url') && key !== 'genres') {
         params[key] = this.state[key];
       }
     }.bind(this))
