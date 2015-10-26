@@ -213,24 +213,26 @@ form.sort-by-form {
   left: 15px;
 }
 
-input.form-control, textarea.form-control span.input-group-addon, select.form-control {
+input.form-control, textarea.form-control, div.funding-goal-input-group, select.form-control {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
 }
 
-.form-control.red-outline {
+.form-control.red-outline, div.funding-goal-input-group.red-outline {
   border: 1px solid red;
   box-shadow: 0 0 5px red;
 }
 
-span.red-left {
-  border-left: 2px solid red;
-  border-top: 2px solid red;
-  border-bottom: 2px solid red;
+div.funding-goal-input-group {
+  border-radius: 5px;
 }
-//
+
+span.red-left {
+  border: 0px;
+}
+
 // input[type=text]:focus, textarea:focus {
 //   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 //   padding: 3px 0px 3px 3px;
@@ -238,11 +240,25 @@ span.red-left {
 //   border: 1px solid rgba(81, 203, 238, 1);
 // }
 
+
 .form-control.red-right {
-  border-right: 2px solid red;
-  border-top: 2px solid red;
-  border-bottom: 2px solid red;
-  border-left: none;
+  border: 0px;
+}
+
+span.form-checkmark {
+  float: right;
+  color: white;
+  background-color: green;
+  padding-bottom: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  text-align: center;
+}
+
+span.form-checkmark h3 {
+  margin: 0px;
+  font-size: 16px;
 }
 
 // input[type="checkbox"] {

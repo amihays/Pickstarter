@@ -77,7 +77,7 @@ window.ApiUtil = {
     })
   },
 
-  updateProject: function (params, id) {
+  updateProject: function (params, id, errorCallback) {
     $.ajax({
       url: 'api/projects/' + id,
       type: 'patch',
@@ -86,7 +86,9 @@ window.ApiUtil = {
         window.location = "#/projects/" + project.id;
       },
       error: function (errors) {
-        console.log("failed deleteProject request")
+        errorCallback();
+        var errorMessages = errors.responseJSON;
+        ApiActions.receiveErrors(errorMessages);
       }
     })
   },

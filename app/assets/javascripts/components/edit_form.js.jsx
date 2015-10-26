@@ -1,6 +1,8 @@
 window.EditForm = React.createClass({
   mixins: [ReactRouter.History],
 
+  NOT_BLANK: ['title', 'description', 'genre_id', 'deadline', 'artist_name', 'funding_goal'],
+
   _getStateFromStore: function () {
     var project = ProjectStore.find(parseInt(this.props.params.id)) || {};
     return {
@@ -10,6 +12,8 @@ window.EditForm = React.createClass({
       deadline: project.deadline,
       artist_name: project.artist_name,
       funding_goal: project.funding_goal,
+      image_url: project.image_url,
+      sound_clip_url: project.sound_clip_url,
       genres: GenreStore.all()
     };
   },
@@ -23,8 +27,11 @@ window.EditForm = React.createClass({
       deadline: project.deadline,
       artist_name: project.artist_name,
       funding_goal: project.funding_goal,
+      image_url: project.image_url,
+      sound_clip_url: project.sound_clip_url,
       genres: GenreStore.all(),
-      modalIsOpen: false
+      modalIsOpen: false,
+      errors: {}
     };
   },
 
@@ -44,11 +51,11 @@ window.EditForm = React.createClass({
     e.preventDefault();
     var params = {};
     Object.keys(this.state).forEach(function(key) {
-      if (key !== 'genres') {
+      if (this.NOT_BLANK.indexOf(key) >= 0 && key !== 'genres') {
         params[key] = this.state[key];
       }
     }.bind(this))
-    ApiUtil.updateProject(params, this.props.params.id);
+    ApiUtil.updateProject(params, this.props.params.id, this._errorAllBlankFields);
   },
 
   genre: function () {
@@ -73,7 +80,13 @@ window.EditForm = React.createClass({
 
   handleInputChange: function (param, e) {
     var newState = {};
+    newState['errors'] = this.state.errors || {};
     newState[param] = e.target.value;
+    if (e.target.value === '' && this.NOT_BLANK.indexOf(param) >= 0) {
+      newState.errors[param] = true;
+    } else if (this.NOT_BLANK.indexOf(param) >= 0) {
+      newState.errors[param] = false;
+    }
     this.setState(newState);
   },
 
@@ -89,6 +102,16 @@ window.EditForm = React.createClass({
         this.setState({image_url: result[0]['url']})
       }
     }.bind(this));
+  },
+
+  _errorAllBlankFields: function () {
+    errors = {};
+    this.NOT_BLANK.forEach(function(key) {
+      if (this.state[key] === '') {
+        errors[key] = true;
+      }
+    }.bind(this))
+    this.setState({errors: errors})
   },
 
   _uploadSoundClip: function (e) {
@@ -125,6 +148,16 @@ window.EditForm = React.createClass({
       );
     }
 
+    var imageCheck = "";
+    if (this.state.image_url) {
+      imageCheck = <span className="form-checkmark"><h3>&#10004;</h3></span>
+    }
+
+    var musicCheck = "";
+    if (this.state.sound_clip_url) {
+      musicCheck = <span className="form-checkmark"><h3>&#10004;</h3></span>
+    }
+
     return(
       <div className='container project-form-container margins-50-px'>
         { modal }
@@ -135,7 +168,7 @@ window.EditForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_title'>Project Title</label>
             <input type='text'
-                   className='form-control'
+                   className={this.state.errors.title ? 'form-control red-outline' : 'form-control' }
                    id='project_title'
                    value={this.state.title}
                    placeholder="Give a name for your project..."
@@ -145,7 +178,7 @@ window.EditForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_artist'>Artist</label>
             <input type='text'
-                   className='form-control'
+                   className={this.state.errors.artist_name ? 'form-control red-outline' : 'form-control' }
                    id='project_artist'
                    placeholder="Artist name..."
                    value={this.state.artist_name}
@@ -155,7 +188,7 @@ window.EditForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_genre'>Genre</label>
             <select id='project_genre'
-                    className='form-control'
+                    className={this.state.errors.genre_id ? 'form-control red-outline' : 'form-control' }
                     value={this.genre()}
                     onChange={this.handleInputChange.bind(null, 'genre_id')}>
               {
@@ -169,7 +202,7 @@ window.EditForm = React.createClass({
           <div className='form-group'>
             <label htmlFor='project_description'>Description</label>
             <textarea id='project_description'
-                      className='form-control'
+                      className={this.state.errors.description ? 'form-control red-outline' : 'form-control' }
                       placeholder="What will you do with the funds?"
                       value={this.state.description}
                       onChange={this.handleInputChange.bind(null, 'description')}/>
@@ -178,15 +211,15 @@ window.EditForm = React.createClass({
           <div className='form-group'>
             <div className="form-row">
               <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
-                <div className="input-group">
-                  <span className="input-group-addon">$</span>
+                <div className={this.state.errors.funding_goal ? "input-group funding-goal-input-group red-outline" : "input-group funding-goal-input-group"}>
+                  <span className={this.state.errors.funding_goal ? 'input-group-addon red-left' : 'input-group-addon'}>$</span>
                   <input type="number"
                          value="1000"
                          min="0"
                          step="0.01"
                          data-number-to-fixed="2"
                          data-number-stepfactor="100"
-                         className="form-control currency"
+                         className={this.state.errors.funding_goal ? 'form-control currency red-right' : 'form-control currency' }
                          id="project_funding_goal"
                          value={this.state.funding_goal}
                          onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
@@ -198,7 +231,7 @@ window.EditForm = React.createClass({
             <label htmlFor='project_deadline'>Fundraising Deadline</label>
             <input type='date'
                    id='project_deadline'
-                   className='form-control'
+                   className={this.state.errors.deadline ? 'form-control red-outline' : 'form-control' }
                    value={this.state.deadline}
                    onChange={this.handleInputChange.bind(null, 'deadline')}/>
           </div>
@@ -208,6 +241,7 @@ window.EditForm = React.createClass({
             <a href="#"
                id='project_image'
                onClick={this._uploadImage}>Upload Image</a>
+              { imageCheck }
           </div>
 
           <div className='form-group'>
@@ -215,6 +249,7 @@ window.EditForm = React.createClass({
             <a href="#"
                id='project_sound_clip'
                onClick={this._uploadSoundClip}>Upload Music Clip</a>
+             { musicCheck }
           </div>
 
           <button type="submit" className="btn btn-default">Update Project!</button>

@@ -91,6 +91,16 @@ window.ProjectForm = React.createClass({
   },
 
   render: function () {
+    var imageCheck = "";
+    if (this.state.image_url) {
+      imageCheck = <span className="form-checkmark"><h3>&#10004;</h3></span>
+    }
+
+    var musicCheck = "";
+    if (this.state.sound_clip_url) {
+      musicCheck = <span className="form-checkmark"><h3>&#10004;</h3></span>
+    }
+
     return(
       <div className='container project-form-container margins-50-px'>
         <div className="row">
@@ -173,6 +183,7 @@ window.ProjectForm = React.createClass({
             <a href="#"
                id='project_image'
                onClick={this._uploadImage}>Upload Image</a>
+             { imageCheck }
           </div>
 
           <div className='form-group'>
@@ -180,6 +191,7 @@ window.ProjectForm = React.createClass({
             <a href="#"
                id='project_sound_clip'
                onClick={this._uploadSoundClip}>Upload Music Clip</a>
+             { musicCheck }
           </div>
 
           <button type="submit" className="btn btn-default">Create Project!</button>
