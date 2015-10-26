@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
 
   has_many :projects
   has_many :contributions
-  
+  has_many :comments
+
   has_many :backed_projects,
     through: :contributions,
     source: :project

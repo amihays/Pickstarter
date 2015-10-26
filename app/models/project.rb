@@ -22,6 +22,7 @@ class Project < ActiveRecord::Base
   belongs_to :genre
   belongs_to :user
 
+  has_many :comments
   has_many :contributions
   has_many :contributors,
     through: :contributions,

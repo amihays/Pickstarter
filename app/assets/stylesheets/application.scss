@@ -298,7 +298,7 @@ span.form-checkmark h3 {
 // }
 
 .container.genres-index {
-  margin-top: 20px;
+  margin-top: 45px;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 15px;
@@ -812,6 +812,7 @@ button.btn.btn-default {
   font-size: 16px;
   margin-bottom: 10px;
   border-width: 0px;
+  // border: 2px outset #70a4a7;
 }
 
 
@@ -822,6 +823,7 @@ button.btn.btn-default:focus {
 
 button.btn.btn-default:hover {
   background-color: #5A8386;
+  // border: 2px inset #5A8386;
 }
 
 button.btn.btn-default.transparent {

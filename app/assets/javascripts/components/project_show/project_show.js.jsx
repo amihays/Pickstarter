@@ -37,6 +37,15 @@ window.ProjectShow = React.createClass({
   closeContribute: function () {
     this.setState({modalIsOpen: false});
   },
+
+  userBackedProject: function () {
+    var result = false;
+    if (this.state.project.comments) {
+      this.state.project.comments.forEach(function(comment) {
+        
+      })
+    }
+  },
   //
   // render: function () {
   //   if (!this.state.project.contributors) {
@@ -78,6 +87,8 @@ window.ProjectShow = React.createClass({
         </div>
       )
     }
+
+    var commentForm = '';
 
     var projectImageStyle = {};
     if (this.state.project.image_url) {
