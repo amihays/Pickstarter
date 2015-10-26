@@ -14,7 +14,7 @@ Genre.destroy_all
 
 # Do this for all models - id #'s won't be in order -
 # need to find user through index in array and get id from that user
-users = User.create([{username: 'demo', password_digest: BCrypt::Password.create('password')}, {username: 'user1', password_digest: BCrypt::Password.create('password1')}, {username: 'user2', password_digest: BCrypt::Password.create('password2')}, {username: 'user3', password_digest: BCrypt::Password.create('password3')}, {username: 'user4', password_digest: BCrypt::Password.create('password4')}, {username: 'user5', password_digest: BCrypt::Password.create('password5')}])
+users = User.create([{username: 'Justin Vernon', password_digest: BCrypt::Password.create('password')}, {username: 'user1', password_digest: BCrypt::Password.create('password1')}, {username: 'user2', password_digest: BCrypt::Password.create('password2')}, {username: 'user3', password_digest: BCrypt::Password.create('password3')}, {username: 'user4', password_digest: BCrypt::Password.create('password4')}, {username: 'user5', password_digest: BCrypt::Password.create('password5')}])
 
 genres = Genre.create([
   {name: 'folk', image_url: 'http://res.cloudinary.com/daqcetxc6/image/upload/c_crop,h_370,w_370,x_53/v1445382726/genres/folk.jpg'},

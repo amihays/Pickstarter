@@ -42,7 +42,7 @@ window.UserProfile = React.createClass({
         {
           this.state.user.projects.map(function(project) {
             return (
-              <SmallProjectsIndexItem project={project}/>
+              <SmallProjectsIndexItem key={project.id} project={project}/>
             )
           })
         }
@@ -56,7 +56,7 @@ window.UserProfile = React.createClass({
         {
           this.uniqueBackedProjects().map(function(project) {
             return (
-              <SmallProjectsIndexItem project={project}/>
+              <SmallProjectsIndexItem key={project.id} project={project}/>
             )
           })
         }
