@@ -60,15 +60,15 @@ window.EditForm = React.createClass({
   },
 
   genre: function () {
+    var result = null;
     if (this.state.genres && this.state) {
       this.state.genres.forEach(function(genre) {
         if (genre.id === this.state.genre_id) {
-          return genre.title;
+          result = genre.id;
         }
       }.bind(this))
-    } else {
-      return '';
     }
+    return result;
   },
 
   _onGenresChange: function () {
@@ -158,6 +158,8 @@ window.EditForm = React.createClass({
     if (this.state.sound_clip_url) {
       musicCheck = <span className="form-checkmark"><h3>&#10004;</h3></span>
     }
+
+    debugger;
 
     return(
       <div className='container project-form-container margins-50-px'>
