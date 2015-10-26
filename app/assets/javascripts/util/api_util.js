@@ -15,9 +15,6 @@ window.ApiUtil = {
       type: "get",
       success: function (genre) {
         ApiActions.receiveSingleGenre(genre);
-      },
-      error: function () {
-        console.log("Failed fetchGenre request");
       }
     })
   },
@@ -28,9 +25,6 @@ window.ApiUtil = {
       type: "get",
       success: function (genres) {
         ApiActions.receiveAllGenres(genres);
-      },
-      error: function () {
-        console.log("Failed fetchGenres request");
       }
     })
   },
@@ -41,9 +35,6 @@ window.ApiUtil = {
       type: "get",
       success: function (project) {
         ApiActions.receiveSingleProject(project);
-      },
-      error: function () {
-        console.log("Failed fetchProject request");
       }
     })
   },
@@ -54,9 +45,6 @@ window.ApiUtil = {
       type: "get",
       success: function (projects) {
         ApiActions.receiveProjects(projects);
-      },
-      error: function () {
-        console.log("Failed fetchProjects request");
       }
     })
   },
@@ -113,11 +101,9 @@ window.ApiUtil = {
       type: 'post',
       data: {contribution: params},
       success: function (contribution) {
-        console.log('createContribution success')
         callback();
       },
       error: function (errors) {
-        console.log(errors)
         var errorMessages = errors.responseJSON;
         ApiActions.receiveErrors(errorMessages);
       }
@@ -130,9 +116,6 @@ window.ApiUtil = {
       type: 'get',
       success: function (user) {
         ApiActions.receiveCurrentUser(user);
-      },
-      error: function () {
-        console.log("Failed fetchCurrentUser request");
       }
     })
   },
@@ -144,9 +127,6 @@ window.ApiUtil = {
       data: params,
       success: function (projects) {
         ApiActions.receiveProjects(projects);
-      },
-      error: function () {
-        console.log("Failed fetchProjects request");
       }
     })
   }
