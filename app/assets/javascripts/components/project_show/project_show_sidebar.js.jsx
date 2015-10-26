@@ -20,6 +20,12 @@ window.ProjectShowSidebar = React.createClass({
     }
   },
 
+  stringify: function(num) {
+    var parts = num.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  },
+
   amountRaised: function () {
     result = 0;
     if (this.props.project.contributions) {
@@ -91,13 +97,18 @@ window.ProjectShowSidebar = React.createClass({
       backers = 'backers'
     }
 
+    var fundingGoalText = '0';
+    if (this.props.project.funding_goal) {
+      fundingGoalText = this.stringify(this.props.project.funding_goal);
+    }
+
     return (
       <div className='project-show-sidebar lightest-grey'>
         <h1 className='text-center no-margin'>{this.contributorsCount()}</h1>
         <h4 className='text-center no-margin'>{backers}</h4>
         { daysLeft }
-        <h1 className='text-center top-padding no-margin'>${this.amountRaised()}</h1>
-        <h4 className='text-center margin-bottom-25px'>raised of ${this.props.project.funding_goal} goal</h4>
+        <h1 className='text-center top-padding no-margin'>${this.stringify(this.amountRaised())}</h1>
+        <h4 className='text-center margin-bottom-25px'>raised of ${fundingGoalText} goal</h4>
         <PercentFundedBar project={this.props.project} width="150px" height="20px" marginTop="25px"/>
         { button }
       </div>

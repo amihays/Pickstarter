@@ -15,6 +15,12 @@ window.ProjectsIndexItem = React.createClass({
     return result;
   },
 
+  stringify: function(num) {
+    var parts = num.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  },
+
   shortenedTitle: function () {
     if (this.props.project.title.length > 50) {
       return this.props.project.title.slice(0,40) + "...";
@@ -30,6 +36,12 @@ window.ProjectsIndexItem = React.createClass({
         backgroundImage: 'url(' + this.props.project.image_url + ')'
       };
     }
+
+    var fundingGoal = '0';
+    if (this.props.project.funding_goal) {
+      fundingGoal = this.stringify(this.props.project.funding_goal);
+    }
+
     return (
       <div className="project-index-item" onClick={this.showProject}>
         <div className="project-image-container transitionfix" style={style}></div>
@@ -38,7 +50,7 @@ window.ProjectsIndexItem = React.createClass({
           <h6 className="project-text artist">{this.props.project.artist_name}</h6>
         </div>
         <div className="projects-index-amount-container">
-          <h6 className="project-text amount-raised">${this.amountRaised()} raised of ${this.props.project.funding_goal}</h6>
+          <h6 className="project-text amount-raised">${this.stringify(this.amountRaised())} raised of ${fundingGoal}</h6>
         </div>
         <div className="projects-index-item-bar">
           <PercentFundedBar project={this.props.project} width="75%" height="10px" marginTop="10px"/>

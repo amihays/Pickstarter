@@ -22,6 +22,7 @@ window.SmallProjectsIndexItem = React.createClass({
         backgroundImage: 'url(' + this.props.project.image_url + ')'
       };
     }
+    
     return (
       <div className="small-project-index-item" onClick={this.showProject}>
         <div className="small-project-image-container" style={style}></div>
