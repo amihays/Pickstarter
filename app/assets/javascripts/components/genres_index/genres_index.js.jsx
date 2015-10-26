@@ -21,7 +21,7 @@ window.GenresIndex = React.createClass({
       <div className='genres-index-page'>
         <div className="jumbotron genres-index-jumbotron">
           <h1 className="genres-index-header">Explore</h1>
-          <h4 className="genres-index-subheader"># diverse genres. (tens of) amazing projects.</h4>
+          <h4 className="genres-index-subheader">9 diverse genres. Tons of amazing projects.</h4>
         </div>
         <div className="container genres-index margins-30-px">
           <div className="row">

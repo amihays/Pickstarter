@@ -65,10 +65,10 @@ window.UserProfile = React.createClass({
 
     return (
       <div>
-        <h2>Hi, {this.state.user.username}!</h2>
-        <h4>Your Projects</h4>
+        <div className="profile-header"><h2>Hi, {this.state.user.username}!</h2></div>
+        <h4 className="profile-text">Your Projects</h4>
         { projects }
-        <h4>Projects You've Backed</h4>
+        <h4 className="profile-text">Projects You've Backed</h4>
         { backedProjects }
       </div>
     )

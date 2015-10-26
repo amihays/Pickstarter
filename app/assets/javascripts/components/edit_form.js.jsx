@@ -131,7 +131,6 @@ window.EditForm = React.createClass({
         <div className="row">
           <Error/>
         </div>
-        <button onClick={ this.openConfirm } className="btn btn-default red">Delete</button>
         <form className='create-project' onSubmit={this.submitForm}>
           <div className='form-group'>
             <label htmlFor='project_title'>Project Title</label>
@@ -220,7 +219,8 @@ window.EditForm = React.createClass({
 
           <button type="submit" className="btn btn-default">Update Project!</button>
         </form>
-        <button onClick={ this.history.goBack } className="btn btn-default red">Cancel</button>
+        <button onClick={ this.openConfirm } className="btn btn-default red">Delete Project</button>
+        <button onClick={ this.history.goBack } className="btn btn-default transparent">Cancel</button>
       </div>
     )
   }
