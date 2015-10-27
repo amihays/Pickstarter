@@ -40,15 +40,6 @@ a.navbar-dropdown:hover {
     background-image: url("http://res.cloudinary.com/daqcetxc6/image/upload/v1445382726/genres/folk.jpg");
 }
 
-// .carousel.carousel-fade .item {
-//     -webkit-transition: opacity 1s linear;
-//     -moz-transition: opacity 1s linear;
-//     -ms-transition: opacity 1s linear;
-//     -o-transition: opacity 1s linear;
-//     transition: opacity 1s linear;
-//     opacity: .5;
-// }
-
 .carousel.carousel-fade .active.item {
     opacity: 1;
 }
@@ -73,9 +64,6 @@ a.navbar-dropdown:hover {
   bottom: 100px;
   left: 15px;
 }
-
-
-
 
 .genres-index-jumbotron {
   height: 400px;
@@ -106,36 +94,6 @@ h1.homepage-header {
     -2px  2px 5px #F8F8F8,
      2px  2px 5px #F8F8F8;
 }
-//
-// h2.homepage-subheader {
-//   position: relative;
-//   text-align: center;
-//   color: #70a4a7;
-//   font-weight: 500;
-//   font-size: 30px;
-//   top: 23%;
-//   left: 50%;
-//   transform: translate(-50%, 0);
-//   // text-shadow:
-//   //   -1px -1px 0 white,
-//   //    1px -1px 0 white,
-//   //   -1px  1px 0 white,
-//   //    1px  1px 0 white;
-// }
-
-// .float-container {
-//   float: bottom;
-//   margin-bottom: 0px;
-//   margin-top: 15px;
-//   width: 220px;
-//   // position: relative;
-// }
-//
-// .float-container:after {
-//   content: "";
-//   display: block;
-//   clear: both;
-// }
 
 h2.checkbox {
   margin: 0px;
@@ -146,7 +104,6 @@ h2.checkbox {
 
 .checkbox-container {
   border: 2px solid white;
-  // float: right;
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -168,7 +125,6 @@ h2.checkbox {
 
 h2.checkbox {
   color: white;
-  // position: absolute;
 }
 
 .checkbox-container:hover {
@@ -181,7 +137,6 @@ h2.checkbox {
   position: absolute;
   bottom: 41px;
   left: 70px;
-  // width: 125px;
 }
 
 #sort-by-carrot {
@@ -193,11 +148,8 @@ h2.checkbox {
 }
 
 #sort-by-select {
-  // float: right;
   color: white;
   text-align: center;
-
-  // width: px;
   height: 25px;
   background: rgba(255, 255, 255, 0);
   border: 0px;
@@ -225,8 +177,6 @@ h2.checkbox {
 }
 
 form.sort-by-form {
-  // border: 1px solid white;
-  // background: rgba(225, 255, 255, 0.17);
   height: 80px;
   width: 230px;
   position: absolute;
@@ -254,14 +204,6 @@ span.red-left {
   border: 0px;
 }
 
-// input[type=text]:focus, textarea:focus {
-//   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-//   padding: 3px 0px 3px 3px;
-//   margin: 5px 1px 3px 0px;
-//   border: 1px solid rgba(81, 203, 238, 1);
-// }
-
-
 .form-control.red-right {
   border: 0px;
 }
@@ -282,25 +224,6 @@ span.form-checkmark h3 {
   font-size: 16px;
 }
 
-// input[type="checkbox"] {
-//     display:none;
-// }
-//
-// span.checkbox {
-//     display: inline-block;
-//     width: 19px;
-//     height: 19px;
-//     margin: -1px 4px 0 0;
-//     background-color: white;
-//     vertical-align: middle;
-//     cursor: pointer;
-//     border-radius: 5px;
-// }
-//
-// input[type="checkbox"]:checked + label {
-//
-// }
-
 .container.genres-index {
   margin-top: 45px;
   padding-left: 30px;
@@ -317,11 +240,6 @@ h1.genres-index-header {
   color: white;
   margin-top: 0px;
   font-size: 90px;
-  // text-shadow:
-  //   -1px -1px 0 black,
-  //    1px -1px 0 black,
-  //   -1px  1px 0 black,
-  //    1px  1px 0 black;
 }
 
 .genres-index-subheader {
@@ -364,7 +282,6 @@ h1.genres-index-header {
 
 .funding-fill {
   height: 100%;
-  // background-color: red;
 }
 
 .center {
@@ -491,14 +408,6 @@ b {
   background-position: center top;
 }
 
-// .project-show-image {
-//   width: 100%;
-//   // border-radius: 10px;
-//   // min-height: 100%;
-//   // margin-left: 50%;
-//   // transform: translateX(-50%);
-// }
-
 .project-show-container {
   width: 70%;
 }
@@ -529,11 +438,6 @@ h4.profile-text {
   padding-right: 15px;
   position: relative;
 }
-//
-// .small-projects-index-amount-container {
-//   position: absolute;
-//   bottom: 15px;
-// }
 
 .small-projects-index-item-bar {
   position: absolute;
@@ -557,27 +461,16 @@ h4.profile-text {
   content: '';
 }
 
-.small-project-index-item:hover .small-project-image-container {
-  // background: rgba(0, 0, 0, 0.2);
-}
-
 .small-project-image-container {
   margin-right: 10px;
-  // margin-left: 50%;
-  // margin-top: 50%;
-  // transform: translate(-50%, -50%);
   height: 100%;
   width: 50%;
   float: left;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
-  // -webkit-transition: opacity 1s linear;
-  //    -moz-transition: opacity 1s linear;
-  //      -o-transition: opacity 1s linear;
-  //         transition: opacity 1s linear;
 }
-//
+
 .small-project-text {
   white-space: pre-wrap;
   font-size: 15px;
@@ -587,10 +480,6 @@ h4.profile-text {
 .small-project-text.title {
   font-weight: 800;
 }
-
-// .small-project-text {
-//   float: left;
-// }
 
 h6.project-text {
   font-weight: 400;
@@ -614,7 +503,6 @@ div.project-index-item {
   border-radius: 10px;
   z-index: 1;
   position: relative;
-  // border: 6px solid transparent;
   overflow: hidden;
   box-shadow: 0px 5px 5px #BBBBBB;
 }
@@ -631,24 +519,11 @@ div.projects-index-item-bar .percent-funded-bar.center {
   overflow: hidden;
 }
 
-// .projects-index-artist-container {
-//   position: absolute;
-//   height: 30px;
-//   bottom: 70px;
-//   overflow: hidden;
-// }
-
 .projects-index-amount-container {
   margin: auto;
   position: absolute;
   bottom: 38px;
 }
-//
-// h6.project-text.amount-raised {
-//   margin-left: 15%;
-//   position: absolute;
-//   bottom: 28px;
-// }
 
 div.project-index-item:hover {
   cursor: pointer;
@@ -661,13 +536,6 @@ div.project-index-item:hover div.project-image-container {
        -o-transition: opacity .1s linear;
           transition: opacity .1s linear;
 }
-
-// .transitionfix {
-    // -webkit-backface-visibility: hidden;
-    // -moz-backface-visibility: hidden;
-    // -webkit-transform: translate3d(0, 0, 0);
-    // -moz-transform: translate3d(0, 0, 0)
-// }
 
 div.project-image-container {
   height: 73%;
@@ -686,10 +554,6 @@ h3.project-description {
   font-weight: 200;
   font-size: 18px;
   line-height: 150%;
-  // font-family: inherit;
-  // background-color: inherit;
-  // border: none;
-  // margin-top: 10px;
 }
 
 div.project-header {
@@ -703,7 +567,6 @@ body {
 }
 
 .jumbotron.genre-header-jumbotron {
-  // background-color: #70a4a7;
   color: white;
   height: 300px;
   background-size: cover;
@@ -766,7 +629,6 @@ div.genre-index-item {
 div.genre-index-item:hover {
   cursor: pointer;
   z-index: 2;
-  // box-shadow: 0px 0px 25px #222222;
   -webkit-transition: box-shadow 0.1s linear;
      -moz-transition: box-shadow 0.1s linear;
        -o-transition: box-shadow 0.1s linear;
@@ -810,10 +672,6 @@ h1.genre-text {
      1px -1px 2px white,
     -1px  1px 2px white,
      1px  1px 2px white;
-    // -1px -1px 0 #BBB,
-    // 1px -1px 0 #BBB,
-    // -1px 1px 0 #BBB,
-    // 1px 1px 0 #BBB;
 }
 
 a.dropdown-toggle:active {
@@ -842,18 +700,15 @@ button.btn.btn-default {
   font-size: 16px;
   margin-bottom: 10px;
   border-width: 0px;
-  // border: 2px outset #70a4a7;
 }
 
 
 button.btn.btn-default:focus {
   outline: none;
-  // background-color: #5A8386;
 }
 
 button.btn.btn-default:hover {
   background-color: #5A8386;
-  // border: 2px inset #5A8386;
 }
 
 button.btn.btn-default.transparent {
@@ -888,7 +743,6 @@ html {
 
 body {
   margin-bottom: 100px;
-  // font-family: 'Open Sans', sans-serif;
 }
 
 .footer {
@@ -939,10 +793,6 @@ textarea.comment-body-input {
 }
 
 div.comments-header {
-  // background-color: #f5f5f5;
-  // border-radius: 5px;
-  // border-top: 5px solid #70a4a7;
-  // border-bottom: 5px solid #70a4a7;
   height: 40px;
   width: 400px;
   margin-top: 20px;
@@ -962,9 +812,6 @@ h6.comment-time {
   margin-right: 40px;
   margin-top: 12px;
   font-size: 14px;
-  // position: absolute;
-  // top: 0px;
-  // right: 5px;
 }
 
 div.comment-info {
@@ -974,8 +821,6 @@ div.comment-info {
 
 div.comment {
   margin-top: 10px;
-  // background-color: #f5f5f5;
-  // background-color: inherit;
   border: 1px solid #AAAAAA;
   width: 700px;
   margin-left: 50%;
@@ -997,11 +842,3 @@ button.trash-button {
 .comment:hover button.trash-button {
   display: block;
 }
-//
-// button.btn.btn-default.no-focus:focus {
-//   background-color: #70a4a7;
-// }
-//
-// button.btn.btn-default.no-focus:hover {
-//   background-color: #70a4a7;
-// }

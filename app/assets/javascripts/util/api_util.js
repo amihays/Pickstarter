@@ -46,6 +46,7 @@ window.ApiUtil = {
     $.ajax({
       url: "api/projects",
       type: "get",
+      data: {allProjects: true},
       success: function (projects) {
         ApiActions.receiveProjects(projects);
       }

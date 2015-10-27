@@ -21,6 +21,3 @@ window.ConfirmModal = React.createClass({
     )
   }
 })
-
-
-// props: project, close handler

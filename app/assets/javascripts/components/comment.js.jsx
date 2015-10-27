@@ -43,7 +43,7 @@ window.Comment = React.createClass({
 
   render: function () {
     var trashButton = '';
-    if (this.props.comment.user_id) {
+    if (this.props.comment.user_id === window.CURRENT_USER.id) {
       trashButton = (
         <button onClick={this._delete} className="trash-button glyphicon glyphicon-trash"/>
       )

@@ -22,25 +22,6 @@ window.SortByJumbotron = React.createClass({
       this._fetchOrderedProjects);
   },
 
-  // _scroll: function () {
-  //   $(function() {
-  //   	$('ul.nav a').bind('click',function(event){
-  //   		var $anchor = $(this);
-  //
-  //   		$('html, body').stop().animate({
-  //   			scrollTop: $($anchor.attr('href')).offset().top
-  //   		}, 1500,'easeInOutExpo');
-  //   		/*
-  //   		if you don't want to use the easing effects:
-  //   		$('html, body').stop().animate({
-  //   			scrollTop: $($anchor.attr('href')).offset().top
-  //   		}, 1000);
-  //   		*/
-  //   		event.preventDefault();
-  //   	});
-  //   });
-  // },
-
   render: function () {
     var checkbox;
     if (this.state.allProjects) {
@@ -71,6 +52,4 @@ window.SortByJumbotron = React.createClass({
       </div>
     )
   }
-            // &#10004;
-            // <h3 id="sort-by-carrot"> &#9660;</h3>
 })
