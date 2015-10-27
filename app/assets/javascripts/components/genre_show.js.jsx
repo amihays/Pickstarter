@@ -30,14 +30,19 @@ window.GenreShow = React.createClass({
 
   render: function () {
     var projects;
-    if (this.state.genre.projects){
+    if (this.state.genre.projects) {
       projects = this.state.genre.projects.map(function(project) {
         return <div key={project.id} className="col-md-4 col-sm-6 col-xs-8"><ProjectsIndexItem project={project}/></div>
       });
     }
+
+    var style = {};
+    if (this.state.genre.banner_url) {
+      style = {backgroundImage: 'url(' + this.state.genre.banner_url + ')'};
+    }
     return(
       <div className="container margins-30-px">
-        <div className="jumbotron genre-header-jumbotron">
+        <div className="jumbotron genre-header-jumbotron" style={style}>
           <h1 className="genre-header">{this.state.genre.name}</h1>
         </div>
         <div className="row">

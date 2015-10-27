@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a.navbar-dropdown:hover {
+  cursor: pointer;
+}
+
 .carousel.carousel-fade {
   margin-bottom: 30px;
 }
@@ -97,10 +101,10 @@ h1.homepage-header {
   left: 50%;
   transform: translate(-50%, 0);
   text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;
+    -2px -2px 5px #F8F8F8,
+     2px -2px 5px #F8F8F8,
+    -2px  2px 5px #F8F8F8,
+     2px  2px 5px #F8F8F8;
 }
 //
 // h2.homepage-subheader {
@@ -325,10 +329,10 @@ h1.genres-index-header {
   color: black;
   font-size: 30px;
   text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;
+    -1px -1px 2px #F8F8F8,
+     1px -1px 2px #F8F8F8,
+    -1px  1px 2px #F8F8F8,
+     1px  1px 2px #F8F8F8;
 }
 
 .margins-30-px {
@@ -541,6 +545,18 @@ h4.profile-text {
   cursor: pointer;
 }
 
+.small-project-index-item:hover::after {
+  position: absolute;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.4;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+}
+
 .small-project-index-item:hover .small-project-image-container {
   // background: rgba(0, 0, 0, 0.2);
 }
@@ -687,8 +703,21 @@ body {
 }
 
 .jumbotron.genre-header-jumbotron {
-  background-color: #70a4a7;
+  // background-color: #70a4a7;
   color: white;
+  height: 300px;
+  background-size: cover;
+}
+
+h1.genre-header {
+  margin-top: 75px;
+  font-size: 75px;
+  text-align: center;
+  text-shadow:
+    -2px -2px 5px black,
+     2px -2px 5px black,
+    -2px  2px 5px black,
+     2px  2px 5px black;
 }
 
 div.container.genres-index {
@@ -777,10 +806,10 @@ h1.genre-text {
   transform: translate(-50%, -50%); // move 50% of text width to the left
   color: black;
   text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;
+    -1px -1px 2px white,
+     1px -1px 2px white,
+    -1px  1px 2px white,
+     1px  1px 2px white;
     // -1px -1px 0 #BBB,
     // 1px -1px 0 #BBB,
     // -1px 1px 0 #BBB,
@@ -789,10 +818,6 @@ h1.genre-text {
 
 a.dropdown-toggle:active {
   background-color: inherit;
-}
-
-h1.genre-header {
-  text-align: center;
 }
 
 .container.project-form-container {

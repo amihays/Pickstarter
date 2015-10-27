@@ -18,8 +18,8 @@ window.Navbar = React.createClass({
                       aria-haspopup="true"
                       aria-expanded="false">{CURRENT_USER.username}<span className="caret"></span></a>
           <ul className="dropdown-menu">
-            <li><a onClick={this.profileClickHandler}>Your profile</a></li>
-            <li><a onClick={this.logOutClickHandler}>Log out</a></li>
+            <li><a className="navbar-dropdown" onClick={this.profileClickHandler}>Your profile</a></li>
+            <li><a className="navbar-dropdown" onClick={this.logOutClickHandler}>Log out</a></li>
           </ul>
       </li>
     );
@@ -33,9 +33,6 @@ window.Navbar = React.createClass({
                   data-toggle="collapse"
                   data-target="#collapse-menu"
                   aria-expanded="false">
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
           </button>
         </div>
 

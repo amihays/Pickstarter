@@ -1,19 +1,26 @@
 window.GenresIndex = React.createClass({
   getInitialState: function () {
-    return {genres: []}
+    return {genres: [], projects: []}
   },
 
-  _onChange: function () {
+  _onGenresChange: function () {
     this.setState({genres: GenreStore.all()})
   },
 
+  _onProjectsChange: function () {
+    this.setState({projects: ProjectStore.all()})
+  },
+
   componentDidMount: function () {
-    GenreStore.addChangeListener(this._onChange);
+    GenreStore.addChangeListener(this._onGenresChange);
+    ProjectStore.addChangeListener(this._onProjectsChange);
     ApiUtil.fetchGenres();
+    ApiUtil.fetchProjects();
   },
 
   componentWillUnmount: function () {
-    GenreStore.removeChangeListener(this._onChange);
+    GenreStore.removeChangeListener(this._onGenresChange);
+    ProjectStore.removeChangeListener(this._onProjectsChange);
   },
 
   render: function () {
@@ -21,7 +28,7 @@ window.GenresIndex = React.createClass({
       <div className='genres-index-page'>
         <div className="jumbotron genres-index-jumbotron">
           <h1 className="genres-index-header">Explore</h1>
-          <h4 className="genres-index-subheader">9 diverse genres. Tons of amazing projects.</h4>
+          <h4 className="genres-index-subheader">9 diverse genres. { this.state.projects.length } amazing projects.</h4>
         </div>
         <div className="container genres-index">
           <div className="row">
