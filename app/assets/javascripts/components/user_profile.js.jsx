@@ -4,7 +4,7 @@ window.UserProfile = React.createClass({
   },
 
   _onChange: function () {
-    user = UserStore.user();
+    user = UserStore.currentUser();
     this.setState({user: user});
   },
 
@@ -26,12 +26,12 @@ window.UserProfile = React.createClass({
   },
 
   componentDidMount: function () {
-    UserStore.addChangeListener(this._onChange);
+    UserStore.addCurrentUserChangeListener(this._onChange);
     ApiUtil.fetchCurrentUser();
   },
 
   componentWillUnmount: function () {
-    UserStore.removeChangeListener(this._onChange);
+    UserStore.removeCurrentUserChangeListener(this._onChange);
   },
 
   render: function () {

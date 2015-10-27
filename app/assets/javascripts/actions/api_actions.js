@@ -46,5 +46,12 @@ window.ApiActions = {
       actionType: window.UserConstants.USER_RECEIVED,
       user: user
     })
+  },
+
+  receiveAllUsers: function (users) {
+    AppDispatcher.dispatch({
+      actionType: window.UserConstants.USERS_RECEIVED,
+      users: users
+    })
   }
 }

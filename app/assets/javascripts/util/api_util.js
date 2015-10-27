@@ -140,5 +140,18 @@ window.ApiUtil = {
         callback();
       }
     })
+  },
+
+  fetchUsers: function() {
+    $.ajax({
+      url: "users",
+      type: "get",
+      success: function (users) {
+        ApiActions.receiveAllUsers(users);
+      },
+      error: function () {
+        console.log("failed fetchUsers request")
+      }
+    })
   }
 }

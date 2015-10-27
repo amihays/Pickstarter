@@ -118,9 +118,7 @@ window.ProjectShow = React.createClass({
           </div>
         </div>
         <CommentForm project={this.state.project}/>
-        <div className='row'>
-          { this.state.project.comments }
-        </div>
+        <Comments comments={this.state.project.comments ? this.state.project.comments : []}/>
       </div>
     )
   }
