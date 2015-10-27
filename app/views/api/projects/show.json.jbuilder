@@ -16,7 +16,7 @@ json.user do
 end
 
 json.comments do
-  json.array! @project.comments do |comment|
+  # json.array! @project.comments do |comment|
     # json.partial! "api/comments/comment", comment: comment
-  end
+  # end
 end
