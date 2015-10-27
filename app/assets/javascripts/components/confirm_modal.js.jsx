@@ -4,7 +4,6 @@ window.ConfirmModal = React.createClass({
   },
 
   delete: function () {
-    // debugger;
     this.props.delete();
   },
 

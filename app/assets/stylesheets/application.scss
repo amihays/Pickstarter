@@ -818,7 +818,7 @@ button.btn.btn-default {
 
 button.btn.btn-default:focus {
   outline: none;
-  background-color: #5A8386;
+  // background-color: #5A8386;
 }
 
 button.btn.btn-default:hover {
@@ -890,3 +890,11 @@ div.profile-header {
 h4.confirm-text {
   margin-bottom: 30px;
 }
+//
+// button.btn.btn-default.no-focus:focus {
+//   background-color: #70a4a7;
+// }
+//
+// button.btn.btn-default.no-focus:hover {
+//   background-color: #70a4a7;
+// }

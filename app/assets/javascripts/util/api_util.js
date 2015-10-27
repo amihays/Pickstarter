@@ -129,5 +129,16 @@ window.ApiUtil = {
         ApiActions.receiveProjects(projects);
       }
     })
+  },
+
+  createComment: function(params, callback) {
+    $.ajax({
+      url: "api/comments",
+      type: "post",
+      data: {comment: params},
+      success: function () {
+        callback();
+      }
+    })
   }
 }

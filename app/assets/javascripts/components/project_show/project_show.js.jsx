@@ -38,14 +38,6 @@ window.ProjectShow = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
-  userBackedProject: function () {
-    var result = false;
-    if (this.state.project.comments) {
-      this.state.project.comments.forEach(function(comment) {
-        
-      })
-    }
-  },
   //
   // render: function () {
   //   if (!this.state.project.contributors) {
@@ -88,8 +80,6 @@ window.ProjectShow = React.createClass({
       )
     }
 
-    var commentForm = '';
-
     var projectImageStyle = {};
     if (this.state.project.image_url) {
       projectImageStyle = { backgroundImage: 'url(' + this.state.project.image_url + ')' };
@@ -126,6 +116,10 @@ window.ProjectShow = React.createClass({
           <div className='col-sm-7'>
             <h3 className='grey project-description'>{this.state.project.description}</h3>
           </div>
+        </div>
+        <CommentForm project={this.state.project}/>
+        <div className='row'>
+          { this.state.project.comments }
         </div>
       </div>
     )
