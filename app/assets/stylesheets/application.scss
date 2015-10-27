@@ -797,6 +797,7 @@ h1.genre-header {
   height: 100%;
   padding: 75px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  border-radius: 5px;
 }
 
 #project_sound_clip, #project_image {
@@ -897,8 +898,13 @@ div.comment-form {
   margin-top: 50px;
   width: 500px;
   margin-left: 50%;
+  border-radius: 5px;
   transform: translateX(-50%);
   box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+textarea.comment-body-input {
+  max-width: 400px;
 }
 //
 // button.btn.btn-default.no-focus:focus {

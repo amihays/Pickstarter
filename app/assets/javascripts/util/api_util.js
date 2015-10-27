@@ -35,6 +35,9 @@ window.ApiUtil = {
       type: "get",
       success: function (project) {
         ApiActions.receiveSingleProject(project);
+      },
+      error: function (error) {
+        console.log(error);
       }
     })
   },
