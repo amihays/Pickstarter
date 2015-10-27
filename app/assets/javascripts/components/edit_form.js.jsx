@@ -145,7 +145,7 @@ window.EditForm = React.createClass({
     var modal = '';
     if (this.state.modalIsOpen) {
       modal = (
-        <ConfirmModal close={this.closeConfirm} delete={this.delete}/>
+        <ConfirmModal close={this.closeConfirm} delete={this.delete} thing={"project"}/>
       );
     }
 

@@ -22,7 +22,7 @@ window.SmallProjectsIndexItem = React.createClass({
         backgroundImage: 'url(' + this.props.project.image_url + ')'
       };
     }
-    
+
     return (
       <div className="small-project-index-item" onClick={this.showProject}>
         <div className="small-project-image-container" style={style}></div>
@@ -33,7 +33,7 @@ window.SmallProjectsIndexItem = React.createClass({
           <h6 className="small-project-text artist">{this.props.project.artist_name}</h6>
         </div>
         <div className="small-projects-index-item-bar">
-          <PercentFundedBar project={this.props.project} width="100px" height="7px" marginTop="5px"/>
+          <PercentFundedBar project={this.props.project} width="150px" height="10px" marginTop="5px"/>
         </div>
       </div>
     )

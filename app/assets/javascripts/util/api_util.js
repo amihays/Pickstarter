@@ -151,9 +151,16 @@ window.ApiUtil = {
       type: "get",
       success: function (users) {
         ApiActions.receiveAllUsers(users);
-      },
-      error: function () {
-        console.log("failed fetchUsers request")
+      }
+    })
+  },
+
+  deleteComment: function (id, projectId) {
+    $.ajax({
+      url: "api/comments/" + id,
+      type: "delete",
+      success: function () {
+        ApiUtil.fetchProject(projectId);
       }
     })
   }

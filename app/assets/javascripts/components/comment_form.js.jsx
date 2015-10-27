@@ -50,11 +50,13 @@ window.CommentForm = React.createClass({
   },
 
   render: function () {
-    if (this.userBackedProject()) {
+    if (this.userBackedProject() || this.props.project.user_id === window.CURRENT_USER.id) {
       return this.renderCommentForm();
     } else {
       return (
-        <div></div>
+        <div className="comments-header center">
+          <h4 className="no-margin">Only backers can post comments.</h4>
+        </div>
       )
     }
   }
