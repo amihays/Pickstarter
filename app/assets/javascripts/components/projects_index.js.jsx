@@ -56,18 +56,9 @@ window.ProjectsIndex = React.createClass({
   render: function () {
     return (
       <div className='projects-index'>
-        <SortByJumbotron scroll={this.scroll} projects={this.state.projects}/>
+        <SortByJumbotron filter={this.state.filter} handleFilterChange={this._handleFilterChange} scroll={this.scroll} projects={this.state.projects}/>
         <div className='container'>
-          <div className='row'>
-            <form className='search-form'>
-              <input type='text'
-                     className='search-box'
-                     value={this.state.filter}
-                     onChange={this._handleFilterChange}
-                     placeholder='search projects'/>
-            </form>
-          </div>
-          <ProjectsIndexItemsList projects={this._filterProjects()} filter={this.state.filter}/>
+          <ProjectsIndexItemsList projects={this._filterProjects()}/>
         </div>
       </div>
     )
