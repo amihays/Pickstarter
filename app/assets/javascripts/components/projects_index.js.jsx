@@ -29,7 +29,7 @@ window.ProjectsIndex = React.createClass({
   _filterProjects: function () {
     result = [];
     this.state.projects.forEach(function(project) {
-      var regExp = new RegExp(this.state.filter.toLowerCase())
+      var regExp = new RegExp('^' + this.state.filter.toLowerCase())
       if (project.title.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
         result.push(project)
       } else if (project.artist_name.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
