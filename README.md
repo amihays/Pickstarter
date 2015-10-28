@@ -1,13 +1,15 @@
 # Pickstarter
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku]
 
-[heroku]:
+[heroku]: www.pickstarter.us
+
+Pickstarter is a web application inspired by Kickstarter which allows musical artists to fundraise for tours, albums, or other musical endeavors. Pickstarter is built using Ruby on Rails
+and React.js. 
 
 ## Minimum Viable Product
 
-Pickstarter is a web application inspired by Kickstarter which allows musical artists to fundraise for tours, albums, or other musical endeavors. Pickstarter is built using Ruby on Rails
-and React.js. Pickstarter allows users to:
+Pickstarter allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
