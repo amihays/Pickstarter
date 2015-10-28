@@ -7,3 +7,6 @@ json.contributions do
     json.partial! "api/contributions/contribution", contribution: contribution
   end
 end
+
+
+json.genre_name project.genre.name
