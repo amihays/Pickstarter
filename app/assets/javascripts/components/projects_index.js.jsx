@@ -26,23 +26,34 @@ window.ProjectsIndex = React.createClass({
     this.setState({filter: e.target.value})
   },
 
+  _filterProjects: function () {
+    result = [];
+    this.state.projects.forEach(function(project) {
+      var regExp = new RegExp(this.state.filter)
+      if (project.title.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
+        result.push(project)
+      } else if (project.artist_name.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
+        result.push(project)
+      } else if (project.genre_name.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
+        result.push(project)
+      }
+      titleWords = project.title.split(' ');
+      titleWords.forEach(function(word) {
+        if (word.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
+          result.push(project)
+        }
+      })
+      artistWords = project.artist_name.split(' ');
+      artistWords.forEach(function(word) {
+        if (word.toLowerCase().match(regExp) && result.indexOf(project) === -1) {
+          result.push(project);
+        }
+      })
+    }.bind(this))
+    return result;
+  },
+
   render: function () {
-    // var projects = '';
-    // if (this.state.projects) {
-    //   projects = (
-    //     <div className="row">
-    //       {
-    //         this.state.projects.map(function(project) {
-    //           return (
-    //             <div className="col-md-4 col-sm-6 col-xs-8" key={project.id}>
-    //               <ProjectsIndexItem project={project}></ProjectsIndexItem>
-    //             </div>
-    //           )
-    //         })
-    //       }
-    //     </div>
-    //   )
-    // }
     return (
       <div className='projects-index'>
         <SortByJumbotron scroll={this.scroll} projects={this.state.projects}/>
@@ -56,7 +67,7 @@ window.ProjectsIndex = React.createClass({
                      placeholder='search projects'/>
             </form>
           </div>
-          <ProjectsIndexItemsList projects={this.state.projects} filter={this.state.filter}/>
+          <ProjectsIndexItemsList projects={this._filterProjects()} filter={this.state.filter}/>
         </div>
       </div>
     )
