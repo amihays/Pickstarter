@@ -176,11 +176,28 @@ h2.checkbox {
   left: 10px;
 }
 
+input.search-box {
+  background: transparent;
+  border: 2px solid white;
+  height: 30px;
+  border-radius: 15px;
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  color: white;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+input.search-box:focus {
+  outline: none;
+}
+
 form.sort-by-form {
-  height: 80px;
+  height: 110px;
   width: 230px;
   position: absolute;
-  top: 355px;
+  top: 340px;
   left: 15px;
 }
 
