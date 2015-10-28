@@ -1,8 +1,8 @@
 # Pickstarter
 
-[Heroku link][heroku]
+[Pickstarter link][heroku]
 
-[heroku]: (http://www.pickstarter.us)
+[heroku]: http://www.pickstarter.us
 
 Pickstarter is a web application inspired by Kickstarter which allows musical artists to fundraise for tours, albums, or other musical endeavors. Pickstarter is built using Ruby on Rails
 and React.js.
