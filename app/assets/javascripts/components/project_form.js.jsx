@@ -154,19 +154,19 @@ window.ProjectForm = React.createClass({
           <div className='form-group'>
             <div className="form-row">
               <label htmlFor='project_funding_goal'>Funding Goal (USD)</label>
-                <div className="input-group">
-                  <span className={this.state.errors.funding_goal ? 'input-group-addon red-left' : 'input-group-addon'}>$</span>
-                  <input type="number"
-                         value="1000"
-                         min="0"
-                         step="0.01"
-                         data-number-to-fixed="2"
-                         data-number-stepfactor="100"
-                         className={this.state.errors.funding_goal ? 'form-control currency red-right' : 'form-control currency' }
-                         id="project_funding_goal"
-                         value={this.state.funding_goal}
-                         onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
-                </div>
+              <div className="input-group">
+                <span className={this.state.errors.funding_goal ? 'input-group-addon red-left' : 'input-group-addon'}>$</span>
+                <input type="number"
+                       value="1000"
+                       min="0"
+                       step="0.01"
+                       data-number-to-fixed="2"
+                       data-number-stepfactor="100"
+                       className={this.state.errors.funding_goal ? 'form-control currency red-right' : 'form-control currency' }
+                       id="project_funding_goal"
+                       value={this.state.funding_goal}
+                       onChange={this.handleInputChange.bind(null, 'funding_goal')}/>
+              </div>
             </div>
           </div>
 

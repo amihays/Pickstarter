@@ -219,10 +219,29 @@ div.funding-goal-input-group {
 
 span.red-left {
   border: 0px;
+  border-left: 1px solid red;
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+  box-shadow: 0 0 5px red;
+}
+//
+span.input-group-addon {
+  -webkit-transition: border 0.30s ease-in-out;
+  -moz-transition: border 0.30s ease-in-out;
+  -ms-transition: border 0.30s ease-in-out;
+  -o-transition: border 0.30s ease-in-out;
 }
 
-.form-control.red-right {
+input.form-control.red-right {
   border: 0px;
+  border-right: 1px solid red;
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+  box-shadow: 0 0 5px red;
+  -webkit-transition: border 0.30s ease-in-out;
+  -moz-transition: border 0.30s ease-in-out;
+  -ms-transition: border 0.30s ease-in-out;
+  -o-transition: border 0.30s ease-in-out;
 }
 
 span.form-checkmark {
